@@ -1,0 +1,266 @@
+/*COLORS*/
+:root {
+  --grayscale_00: #000000;
+  --grayscale_01: #181818;
+  --grayscale_02: #444444;
+  --grayscale_03: #b9b9b9;
+  --grayscale_04: #cfcfcf;
+  --grayscale_05: #e4e4e4;
+  --grayscale_06: #f5f5f5;
+  --grayscale_07: #ffffff;
+
+  --primary_00: #7b31d4;
+  --primary_01: #954ced;
+  --primary_02: #a64ced;
+  --primary_03: #ba8bf3;
+  --primary_04: #954ced33;
+
+  --secondary_01: #2fdbbc;
+  --secondary_02: #ffaa4c;
+  --secondary_03: #c1db2f;
+
+  --additional_01: #ff6c2d;
+  --additional_02: #ec1211;
+}
+
+/*TEXT*/
+
+/*Title*/
+.T1_Bold_128 {
+  font-family: "Outfit-Bold";
+  font-size: 8rem;
+  line-height: 106%;
+}
+.T2_Bold_96 {
+  font-family: "Outfit-Bold";
+  font-size: 6rem;
+  line-height: 106%;
+}
+.T3_Bold_64 {
+  font-family: "Outfit-Bold";
+  font-size: 4rem;
+  line-height: 106%;
+}
+.T4_Bold_48 {
+  font-family: "Outfit-Bold";
+  font-size: 4rem;
+  line-height: 106%;
+}
+.T5_SemiBold_48 {
+  font-family: "Outfit-SemiBold";
+  font-size: 4rem;
+  line-height: auto;
+}
+.T6_Bold_40 {
+  font-family: "Outfit-Bold";
+  font-size: 2.5rem;
+  line-height: 106%;
+}
+.T7_Bold_32 {
+  font-family: "Outfit-Bold";
+  font-size: 2rem;
+  line-height: 106%;
+}
+.T8_Bold_86 {
+  font-family: "Outfit-Bold";
+  font-size: 5.375rem;
+  line-height: 106%;
+}
+
+/*Subtitle*/
+.S1_Semibold_36 {
+  font-family: "Outfit-Semibold";
+  font-size: 2.25rem;
+  line-height: auto;
+}
+.S2_Semibold_24 {
+  font-family: "Outfit-Semibold";
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+.S3_Regular_24 {
+  font-family: "Outfit-Regular";
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+.S4_SemiBold_20 {
+  font-family: "Outfit-Semibold";
+  font-size: 1.25rem;
+  line-height: auto;
+}
+.S5_Medium_20 {
+  font-family: "Outfit-Medium";
+  font-size: 1.25rem;
+  line-height: auto;
+}
+.S6_Regular_20 {
+  font-family: "Outfit-Regular";
+  font-size: 1.25rem;
+  line-height: 120%;
+}
+.S7_Light_20 {
+  font-family: "Outfit-Light";
+  font-size: 1.25rem;
+  line-height: 140%;
+}
+
+/*Body*/
+.B1_Medium_16 {
+  font-family: "Outfit-Medium";
+  font-size: 1rem;
+  line-height: auto;
+}
+.B2_Regular_16 {
+  font-family: "Outfit-Regular";
+  font-size: 1rem;
+  line-height: auto;
+}
+.B3_Medium_14 {
+  font-family: "Outfit-Medium";
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+.B4_Regular_14 {
+  font-family: "Outfit-Regular";
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+.B5_Light_14 {
+  font-family: "Outfit-Light";
+  font-size: 0.875rem;
+  line-height: 140%;
+}
+.B6_Light_14_Underline {
+  font-family: "Outfit-Light";
+  font-size: 0.875rem;
+  line-height: 140%;
+  text-decoration: underline;
+}
+.B7_Regular_12 {
+  font-family: "Outfit-Regular";
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+/*BUTTONS*/
+.primary_button,
+.secondary_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.75rem 1.625rem;
+  border-radius: 1rem;
+  outline: none;
+  color: var(--grayscale_07);
+}
+
+.primary_button {
+  background-color: var(--primary_01);
+  border: 4px solid var(--primary_01);
+  &:hover {
+    background-color: var(--grayscale_01);
+    border-color: var(--grayscale_01);
+  }
+  &:focus {
+    background-color: var(--primary_01);
+    outline: var(--primary_03) solid 4px;
+    outline-offset: -4px;
+  }
+  &:active {
+    background-color: var(--primary_00);
+    border-color: var(--primary_00);
+  }
+  &:disabled {
+    background-color: var(--grayscale_03);
+    border-color: var(--grayscale_03);
+  }
+}
+.secondary_button {
+  background-color: transparent;
+  border: 4px solid var(--primary_01);
+  &:hover {
+    background-color: var(--primary_04);
+    border-color: var(--primary_01);
+  }
+  &:focus {
+    background-color: transparent;
+    border-color: var(--primary_04);
+    outline: var(--primary_03) solid 2px;
+    outline-offset: -2px;
+  }
+  &:active {
+    background-color: transparent;
+    border-color: var(--primary_02);
+  }
+  &:disabled {
+    background-color: transparent;
+    border-color: var(--grayscale_03);
+    color: var(--grayscale_03);
+  }
+}
+
+/*INPUT*/
+.input_div {
+  position: relative;
+  padding-top: 1.625rem;
+  display: flex;
+  flex-direction: column;
+}
+.input_div--form_input {
+  display: flex;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: 1px solid #f1f1f1;
+  border-radius: 0.875rem;
+  color: #070707;
+  &::placeholder {
+    color: #a7a7a7;
+  }
+  & ~ label {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    color: #070707;
+  }
+  &:required ~ label::after {
+    content: "*";
+    color: var(--additional_01);
+    margin-left: 0.4rem;
+  }
+
+  &:focus {
+    outline-offset: -1px;
+    outline: #a7a7a7 solid 1px;
+    /* border-color: #a7a7a7; */
+    &::placeholder {
+      color: transparent;
+    }
+  }
+  &:disabled {
+    background-color: var(--grayscale_07);
+    border-color: #f1f1f1;
+    & ~ label,
+    ::placeholder {
+      color: #a7a7a7;
+    }
+  }
+}
+.input_div--form_input_invalid {
+  border-color: var(--additional_02);
+}
+
+/*Example*/
+/* <div class="input_div">
+<input
+  type="tel"
+  name=""
+  required
+  id="tel"
+  class="input_div--form_input B4_Regular_14"
+  placeholder="Enter name"
+  autocomplete="off"
+/>
+<label for="tel" class="B3_Medium_14">Phone number</label>
+</div> */

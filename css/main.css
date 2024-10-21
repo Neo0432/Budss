@@ -1,0 +1,151 @@
+@import "./uiKit.css";
+
+/*FONTS*/
+@font-face {
+  font-family: "Outfit-Thin";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 100;
+  src: url("../public/fonts/Outfit-Thin.woff2");
+}
+@font-face {
+  font-family: "Outfit-ExtraLight";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 200;
+  src: url("../public/fonts/Outfit-ExtraLight.woff2");
+}
+@font-face {
+  font-family: "Outfit-Light";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../public/fonts/Outfit-Light.woff2");
+}
+@font-face {
+  font-family: "Outfit-Regular";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../public/fonts/Outfit-Regular.woff2");
+}
+@font-face {
+  font-family: "Outfit-Medium";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../public/fonts/Outfit-Medium.woff2");
+}
+@font-face {
+  font-family: "Outfit-SemiBold";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../public/fonts/Outfit-SemiBold.woff2");
+}
+@font-face {
+  font-family: "Outfit-Bold";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../public/fonts/Outfit-Bold.woff2");
+}
+@font-face {
+  font-family: "Outfit-ExtraBold";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 800;
+  src: url("../public/fonts/Outfit-ExtraBold.woff2");
+}
+@font-face {
+  font-family: "Outfit-Black";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../public/fonts/Outfit-Black.woff2");
+}
+
+*,
+html {
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--grayscale_07);
+}
+body {
+  margin: auto;
+  /* background-color: var(--grayscale_01); */
+  height: 100vw;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6.25rem;
+  width: 100%;
+  background-color: var(--grayscale_01);
+}
+main > section {
+  width: 100%;
+  max-width: 1440px;
+  padding-inline: 3.75rem;
+}
+
+.main--slogan_block {
+  position: relative;
+  padding-left: 6.875rem;
+}
+.main--slogan_block--info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 5.125rem;
+  margin-bottom: 8.75rem;
+}
+.main--slogan_block--info--textarea {
+  display: grid;
+  gap: 1.25rem;
+  width: fit-content;
+  & p:last-child {
+    width: 33.4rem;
+  }
+}
+.main--slogan_block--hero {
+  position: absolute;
+  width: 36.2rem;
+  height: 33.07rem;
+  bottom: 0;
+  right: 0;
+}
+.main--slogan_block--hero--imgs {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: inherit;
+  /* width: max-content; */
+  & img {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    &:last-child {
+      margin-left: 1.8rem;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  gap: 20px;
+}
+
+/*Delete text selection*/
+.unselectable,
+button {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
