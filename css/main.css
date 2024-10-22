@@ -77,7 +77,6 @@ a {
 body {
   margin: auto;
   /* background-color: var(--grayscale_01); */
-  height: 100vw;
 }
 main {
   display: flex;
@@ -187,6 +186,85 @@ main > section {
     flex-direction: column;
     gap: 1.25rem;
     text-wrap: pretty;
+  }
+}
+
+.main--works {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  padding-inline: 0;
+  & img {
+    z-index: 3;
+    position: absolute;
+    height: 38.94rem;
+    top: calc(50% - 19.47rem);
+    left: calc(50% - (19.25rem / 2));
+    margin-inline: auto;
+  }
+}
+.main--works--text {
+  margin: 2.875rem 0;
+  overflow: hidden;
+  text-wrap: nowrap;
+  & > ul {
+    display: grid;
+    gap: 4.25rem;
+    list-style-type: none;
+  }
+  & ul > li {
+    position: relative;
+    display: flex;
+    animation: text-slide 10s linear infinite 0s reverse;
+    &:nth-child(1) > p {
+      color: var(--secondary_01);
+    }
+    &:nth-child(2) {
+      animation-direction: normal;
+      animation-delay: -6s; /*чтобы все <li/> выезжали в центр в одно время*/
+      & p {
+        color: var(--primary_02);
+      }
+    }
+    &:nth-child(3) > p {
+      color: var(--secondary_02);
+    }
+  }
+  & ul > li > p::after,
+  ul > li > p::before {
+    margin-inline: 1.25rem;
+    content: "HOW BUDSS WORK";
+    color: transparent;
+    -webkit-text-stroke: 1px var(--grayscale_02);
+  }
+}
+
+@keyframes text-slide {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -50%;
+  }
+}
+
+.main__metrics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  max-width: none;
+  background-color: var(--primary_02);
+}
+.main__metrics-item {
+  display: grid;
+  gap: 1rem;
+  & > p {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 
