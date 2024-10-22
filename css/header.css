@@ -27,5 +27,5 @@ header {
 .header_container--logo--logo_name {
   font-family: "Outfit-SemiBold";
   font-size: 2.25rem;
-  line-height: auto;
+  line-height: normal;
 }

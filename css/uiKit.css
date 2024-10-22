@@ -43,13 +43,13 @@
 }
 .T4_Bold_48 {
   font-family: "Outfit-Bold";
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 106%;
 }
 .T5_SemiBold_48 {
   font-family: "Outfit-SemiBold";
-  font-size: 4rem;
-  line-height: auto;
+  font-size: 3rem;
+  line-height: normal;
 }
 .T6_Bold_40 {
   font-family: "Outfit-Bold";
@@ -71,7 +71,7 @@
 .S1_Semibold_36 {
   font-family: "Outfit-Semibold";
   font-size: 2.25rem;
-  line-height: auto;
+  line-height: normal;
 }
 .S2_Semibold_24 {
   font-family: "Outfit-Semibold";
@@ -86,12 +86,12 @@
 .S4_SemiBold_20 {
   font-family: "Outfit-Semibold";
   font-size: 1.25rem;
-  line-height: auto;
+  line-height: normal;
 }
 .S5_Medium_20 {
   font-family: "Outfit-Medium";
   font-size: 1.25rem;
-  line-height: auto;
+  line-height: normal;
 }
 .S6_Regular_20 {
   font-family: "Outfit-Regular";
@@ -108,12 +108,12 @@
 .B1_Medium_16 {
   font-family: "Outfit-Medium";
   font-size: 1rem;
-  line-height: auto;
+  line-height: normal;
 }
 .B2_Regular_16 {
   font-family: "Outfit-Regular";
   font-size: 1rem;
-  line-height: auto;
+  line-height: normal;
 }
 .B3_Medium_14 {
   font-family: "Outfit-Medium";
