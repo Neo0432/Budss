@@ -273,7 +273,7 @@ main > section {
   flex-direction: column;
   align-items: center;
   gap: 4.375rem;
-  padding: 4.375rem;
+  padding-inline: 4.375rem;
 }
 
 .main__features__textarea {
@@ -311,9 +311,6 @@ main > section {
   display: flex;
   height: fit-content;
   gap: 1.25rem;
-  /* &:last-child > div:first-child {
-    width: 34.2rem;
-  } */
 }
 .main__features__blocks__row__item {
   position: relative;
@@ -394,12 +391,87 @@ main > section {
   }
 }
 
-.form {
+.main__brand-awarness {
+  display: flex;
+  justify-content: center;
+  padding: 6.25rem 0;
+  max-width: none;
+  width: 100%;
+  background-color: var(--grayscale_07);
+  & h2,
+  h3,
+  p {
+    color: var(--grayscale_00);
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+    gap: 6.25rem;
+    & > div:first-child {
+      padding-inline: 3.75rem;
+    }
+  }
+}
+.main__brand-awarness__contact-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2.5rem;
+  padding: 3.75rem 0;
+  border: 1px solid var(--grayscale_04);
+  border-radius: 3.75rem;
+}
+
+.main__brand-awarness__socials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 2rem; */
+  padding: 0 2.8rem 0 3.75rem;
+}
+.main__brand-awarness__socials__textarea {
+  max-width: 52.9rem;
+  & p {
+    max-width: 33.57rem;
+  }
+}
+
+.main__brand-awarness__socials__icons {
+  display: grid;
+  grid-template-columns: 13.75rem 13.75rem;
+  grid-template-rows: max-content max-content;
+  column-gap: 2.5rem;
+  row-gap: 0.125rem;
+  & > :nth-child(3),
+  > :nth-child(4) {
+    justify-self: end;
+  }
+}
+
+.main__brand-awarness__associates {
+  display: flex;
+  justify-content: center;
+  padding-inline: 3.75rem;
+  & > ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    gap: 5.63rem;
+    height: max-content;
+    list-style: none;
+  }
+}
+
+/* .form {
   display: flex;
   flex-direction: column;
   width: 33%;
   gap: 20px;
-}
+} */
 
 /*Delete text selection*/
 .unselectable,
