@@ -154,7 +154,7 @@ main > section {
       position: absolute;
       z-index: -1;
       right: 0;
-      bottom: -0.3rem;
+      bottom: -0.25rem;
       line-height: 0;
     }
   }
@@ -265,6 +265,132 @@ main > section {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+  }
+}
+
+.main__features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.375rem;
+  padding: 4.375rem;
+}
+
+.main__features__textarea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 41.5rem;
+  text-align: center;
+  & p > span {
+    position: relative;
+    z-index: 1;
+  }
+  & p > span:last-child:after {
+    content: url("../public/img/features/shapes/text_shape.svg");
+    position: absolute;
+    z-index: -1;
+    line-height: 0;
+    bottom: -0.25rem;
+    left: 0;
+  }
+}
+
+.main__features__blocks {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.25rem;
+  & .main__features__blocks__items {
+    background-color: var(--grayscale_06);
+    height: 250px;
+  }
+}
+.main__features__blocks__row {
+  display: flex;
+  height: fit-content;
+  gap: 1.25rem;
+  /* &:last-child > div:first-child {
+    width: 34.2rem;
+  } */
+}
+.main__features__blocks__row__item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  height: 22.625rem;
+  background-color: var(--grayscale_06);
+  border-radius: 1.875rem;
+  padding: 2.5rem;
+  & p,
+  h3 {
+    color: var(--grayscale_00);
+  }
+  &::after {
+    position: absolute;
+    bottom: -0.25rem; /*Мне кажется костыль
+    Но я хз как иначе*/
+  }
+}
+
+/*Задаю две вариации, иначе при одной gap почему-то
+ ломает размеры заданного флекса*/
+.main__features__blocks__row__item--long {
+  width: 733px;
+}
+.main__features__blocks__row__item--short {
+  width: 547px;
+}
+
+.main__features__blocks__row:first-child {
+  & > .main__features__blocks__row__item:nth-child(1) {
+    justify-content: end;
+    & > div {
+      max-width: 22.75rem;
+      & p {
+        max-width: 20.9rem;
+      }
+    }
+    &::after {
+      content: url(../public/img/features/cards-img/Phone.svg);
+      left: 0;
+    }
+  }
+
+  & > .main__features__blocks__row__item:nth-child(2) {
+    & div {
+      max-width: 26rem;
+    }
+    &::after {
+      content: url(../public/img/features/cards-img/Bags.svg);
+      right: 0;
+    }
+  }
+}
+
+.main__features__blocks__row:last-child {
+  & > .main__features__blocks__row__item:nth-child(1) {
+    & div {
+      max-width: 27.5rem;
+      & p {
+        max-width: 19.25rem;
+      }
+    }
+    &::after {
+      content: url(/public/img/features/cards-img/Like.svg);
+      right: 0;
+    }
+  }
+
+  & > .main__features__blocks__row__item:nth-child(2) {
+    & div {
+      max-width: 25.2rem;
+    }
+    &::after {
+      content: url(/public/img/features/cards-img/WithPhone.svg);
+      right: 2.7rem;
+    }
   }
 }
 
