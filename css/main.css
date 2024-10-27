@@ -1,70 +1,5 @@
 @import "./uiKit.css";
 
-/*FONTS*/
-@font-face {
-  font-family: "Outfit-Thin";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 100;
-  src: url("../public/fonts/Outfit-Thin.woff2");
-}
-@font-face {
-  font-family: "Outfit-ExtraLight";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 200;
-  src: url("../public/fonts/Outfit-ExtraLight.woff2");
-}
-@font-face {
-  font-family: "Outfit-Light";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 300;
-  src: url("../public/fonts/Outfit-Light.woff2");
-}
-@font-face {
-  font-family: "Outfit-Regular";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 400;
-  src: url("../public/fonts/Outfit-Regular.woff2");
-}
-@font-face {
-  font-family: "Outfit-Medium";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 500;
-  src: url("../public/fonts/Outfit-Medium.woff2");
-}
-@font-face {
-  font-family: "Outfit-SemiBold";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 600;
-  src: url("../public/fonts/Outfit-SemiBold.woff2");
-}
-@font-face {
-  font-family: "Outfit-Bold";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 700;
-  src: url("../public/fonts/Outfit-Bold.woff2");
-}
-@font-face {
-  font-family: "Outfit-ExtraBold";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 800;
-  src: url("../public/fonts/Outfit-ExtraBold.woff2");
-}
-@font-face {
-  font-family: "Outfit-Black";
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 900;
-  src: url("../public/fonts/Outfit-Black.woff2");
-}
-
 *,
 html {
   margin: 0;
@@ -98,9 +33,28 @@ body {
     }
   }
 }
-.page-nav_page--selected {
+.page-nav__page--selected {
   background-color: var(--grayscale_01);
   color: var(--grayscale_07) !important;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 4.44rem;
+  background-color: var(--grayscale_01);
+}
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  padding-inline: 3.75rem;
 }
 
 main {
@@ -117,11 +71,11 @@ main > section {
   padding-inline: 3.75rem;
 }
 
-.main--slogan_block {
+.main__slogan-block {
   position: relative;
   padding-left: 6.875rem;
 }
-.main--slogan_block--info {
+.slogan-block__info {
   position: relative;
   z-index: 2;
   display: flex;
@@ -130,7 +84,7 @@ main > section {
   margin-top: 5.125rem;
   margin-bottom: 8.75rem;
 }
-.main--slogan_block--info--textarea {
+.slogan-block__textarea {
   display: grid;
   gap: 1.25rem;
   width: fit-content;
@@ -138,34 +92,34 @@ main > section {
     width: 33.4rem;
   }
 }
-.main--slogan_block--hero {
+.slogan-block__hero {
   position: absolute;
   width: 36.2rem;
   height: 33.07rem;
   bottom: 0;
   right: 0;
-}
-.main--slogan_block--hero--imgs {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: inherit;
-  /* width: max-content; */
-  & img {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    &:last-child {
-      margin-left: 1.8rem;
+  & > div {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: inherit;
+    /* width: max-content; */
+    & img {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      &:last-child {
+        margin-left: 1.8rem;
+      }
     }
   }
 }
 
-.main--about {
+.main__about {
   display: grid;
   gap: 5rem;
 }
-.main--about--body {
+.about__body {
   position: relative;
   display: flex;
   gap: 7.375rem;
@@ -191,30 +145,29 @@ main > section {
   }
 }
 
-.main--about--body--features {
+.about__features {
   display: grid;
   gap: 4.375rem;
   grid-template-columns: 1fr 1fr;
   max-width: 45.45rem;
-}
-
-.main--about--body--features--item {
-  display: grid;
-  gap: 0.625rem;
-  min-width: 336px;
-  & img {
-    width: 6.25rem;
-    height: 6.25rem;
-  }
   & > div {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    text-wrap: pretty;
+    display: grid;
+    gap: 0.625rem;
+    min-width: 336px;
+    & img {
+      width: 6.25rem;
+      height: 6.25rem;
+    }
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      text-wrap: pretty;
+    }
   }
 }
 
-.main--works {
+.main__works {
   position: relative;
   width: 100%;
   max-width: none;
@@ -228,7 +181,7 @@ main > section {
     margin-inline: auto;
   }
 }
-.main--works--text {
+.works__text {
   margin: 2.875rem 0;
   overflow: hidden;
   text-wrap: nowrap;
@@ -283,7 +236,7 @@ main > section {
   max-width: none;
   background-color: var(--primary_02);
 }
-.main__metrics-item {
+.metrics__item {
   display: grid;
   gap: 1rem;
   & > p {
@@ -301,7 +254,7 @@ main > section {
   padding-inline: 4.375rem;
 }
 
-.main__features__textarea {
+.features__textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -322,7 +275,7 @@ main > section {
   }
 }
 
-.main__features__blocks {
+.features__blocks {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -332,12 +285,12 @@ main > section {
     height: 250px;
   }
 }
-.main__features__blocks__row {
+.features__row {
   display: flex;
   height: fit-content;
   gap: 1.25rem;
 }
-.main__features__blocks__row__item {
+.features__item {
   position: relative;
   overflow: hidden;
   display: flex;
@@ -358,15 +311,15 @@ main > section {
 
 /*Задаю две вариации, иначе при одной gap почему-то
  ломает размеры заданного флекса*/
-.main__features__blocks__row__item--long {
+.features__item--long {
   width: 733px;
 }
-.main__features__blocks__row__item--short {
+.features__item--short {
   width: 547px;
 }
 
-.main__features__blocks__row:first-child {
-  & > .main__features__blocks__row__item:nth-child(1) {
+.features__row:first-child {
+  & > .features__item:nth-child(1) {
     justify-content: end;
     & > div {
       max-width: 22.75rem;
@@ -380,7 +333,7 @@ main > section {
     }
   }
 
-  & > .main__features__blocks__row__item:nth-child(2) {
+  & > .features__item:nth-child(2) {
     & div {
       max-width: 26rem;
     }
@@ -391,8 +344,8 @@ main > section {
   }
 }
 
-.main__features__blocks__row:last-child {
-  & > .main__features__blocks__row__item:nth-child(1) {
+.features__row:last-child {
+  & > .features__item:nth-child(1) {
     & div {
       max-width: 27.5rem;
       & p {
@@ -405,7 +358,7 @@ main > section {
     }
   }
 
-  & > .main__features__blocks__row__item:nth-child(2) {
+  & > .features__item:nth-child(2) {
     & div {
       max-width: 25.2rem;
     }
@@ -439,7 +392,7 @@ main > section {
     }
   }
 }
-.main__brand-awarness__contact-div {
+.brand-awarness__contact-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -451,21 +404,21 @@ main > section {
   border-radius: 3.75rem;
 }
 
-.main__brand-awarness__socials {
+.brand-awarness__socials {
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* gap: 2rem; */
   padding: 0 2.8rem 0 3.75rem;
 }
-.main__brand-awarness__socials__textarea {
+.socials__textarea {
   max-width: 52.9rem;
   & p {
     max-width: 33.57rem;
   }
 }
 
-.main__brand-awarness__socials__icons {
+.socials__icons {
   display: grid;
   grid-template-columns: 13.75rem 13.75rem;
   grid-template-rows: max-content max-content;
@@ -477,7 +430,7 @@ main > section {
   }
 }
 
-.main__brand-awarness__associates {
+.brand-awarness__associates {
   display: flex;
   justify-content: center;
   padding-inline: 3.75rem;
@@ -506,7 +459,7 @@ footer {
   }
 }
 
-.footer__nav {
+.footer__footer-nav {
   & > div {
     display: flex;
     align-items: center;
@@ -514,11 +467,11 @@ footer {
     width: 100%;
   }
 }
-.footer__nav__pages {
+.footer-nav__pages {
   display: flex;
   gap: 2.5rem;
 }
-.footer__nav__buttons {
+.footer-nav__buttons {
   display: flex;
   gap: 2.5rem;
   & > div {
@@ -527,8 +480,8 @@ footer {
   }
 }
 
-.footer__nav__legal,
-.footer__nav__legal a {
+.footer-nav__legal,
+.footer-nav__legal a {
   color: var(--grayscale_03);
   text-decoration-color: var(--grayscale_03);
   & > div {

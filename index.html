@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/header.css" />
+    <!-- <link rel="stylesheet" href="./css/header.css" /> -->
     <title>Budss</title>
   </head>
   <body>
     <nav class="page-nav">
       <div>
-        <a href="/" class="B1_Medium_16 page-nav_page--selected"
+        <a href="/" class="B1_Medium_16 page-nav__page--selected"
           >For Business</a
         >
         <a href="for-customers" class="B1_Medium_16">For Customers</a>
@@ -18,23 +18,26 @@
     </nav>
     <header>
       <div class="header_container">
-        <a href="#" class="header_container--logo">
-          <div class="header_container--logo--logo_img">
+        <a href="#" class="logo">
+          <div class="logo__img">
             <img src="/public/img/logo/Logo.svg" />
           </div>
-          <p class="header_container--logo--logo_name">budss</p>
+          <p class="logo__title">budss</p>
         </a>
         <div>
-          <button type="button" class="secondary_button S4_SemiBold_20">
+          <button
+            type="button"
+            class="primary_button primary_button--dark_bg S4_SemiBold_20"
+          >
             Contact Sales
           </button>
         </div>
       </div>
     </header>
     <main>
-      <section class="main--slogan_block">
-        <div class="main--slogan_block--info">
-          <div class="main--slogan_block--info--textarea">
+      <section class="main__slogan-block">
+        <div class="slogan-block__info">
+          <div class="slogan-block__textarea">
             <h1 class="T2_Bold_96">
               Everyone <br />
               is an Influencer
@@ -44,26 +47,29 @@
               acquisition and retention of customers to your business.
             </p>
           </div>
-          <button type="button" class="secondary_button S4_SemiBold_20">
+          <button
+            type="button"
+            class="primary_button primary_button--dark_bg S4_SemiBold_20"
+          >
             Contact sales
           </button>
         </div>
-        <div class="main--slogan_block--hero">
-          <div class="main--slogan_block--hero--imgs">
+        <div class="slogan-block__hero">
+          <div>
             <img src="/public/img/slogan_block/Shape.svg" alt="" />
             <img src="/public/img/slogan_block/Hero (1).webp" alt="" />
           </div>
         </div>
       </section>
-      <section class="main--about">
+      <section class="main__about">
         <h2 class="T2_Bold_96">About Budss</h2>
-        <div class="main--about--body">
-          <p class="S1_Semibold_36">
+        <div class="about__body">
+          <p class="S1_SemiBold_36">
             Payment as a service, powered seamlessly by our network of shoppers
           </p>
-          <div class="main--about--body--features">
+          <div class="about__features">
             <!--GRID-->
-            <div class="main--about--body--features--item">
+            <div>
               <!--Item-->
               <img src="/public/img/about/icons/star.svg" alt="" />
               <div>
@@ -75,7 +81,7 @@
                 </p>
               </div>
             </div>
-            <div class="main--about--body--features--item">
+            <div>
               <!--Item-->
               <img src="/public/img/about/icons/arrow.svg" alt="" />
               <div>
@@ -86,7 +92,7 @@
                 </p>
               </div>
             </div>
-            <div class="main--about--body--features--item">
+            <div>
               <!--Item-->
               <img src="/public/img/about/icons/zigzag.svg" alt="" />
               <div>
@@ -98,7 +104,7 @@
                 </p>
               </div>
             </div>
-            <div class="main--about--body--features--item">
+            <div>
               <!--Item-->
               <img src="/public/img/about/icons/paperclips.svg" alt="" />
               <div>
@@ -114,9 +120,9 @@
           </div>
         </div>
       </section>
-      <section class="main--works" aria-label="How Budss Works">
+      <section class="main__works" aria-label="How Budss Works">
         <img src="/public/img/works/phone.svg" alt="" />
-        <div class="main--works--text">
+        <div class="works__text">
           <ul>
             <li>
               <p class="T1_Bold_128">HOW BUDSS WORKS</p>
@@ -134,38 +140,36 @@
         </div>
       </section>
       <section class="main__metrics" aria-label="Key Business Metrics">
-        <div class="main__metrics-item">
+        <div class="metrics__item">
           <p class="T3_Bold_64">15%</p>
-          <p class="S2_Semibold_24">
+          <p class="S2_SemiBold_24">
             <span>Increase</span> <span>in Purchase Amount</span>
           </p>
         </div>
-        <div class="main__metrics-item">
+        <div class="metrics__item">
           <p class="T3_Bold_64">30%</p>
-          <p class="S2_Semibold_24">
+          <p class="S2_SemiBold_24">
             <span>Growth</span> <span>in Annual Sales</span>
           </p>
         </div>
-        <div class="main__metrics-item">
+        <div class="metrics__item">
           <p class="T3_Bold_64">10%</p>
-          <p class="S2_Semibold_24">
+          <p class="S2_SemiBold_24">
             <span>Growth in New</span> <span>Customers</span>
           </p>
         </div>
       </section>
       <section class="main__features">
-        <div class="main__features__textarea">
+        <div class="features__textarea">
           <h2 class="T3_Bold_64">Why Budss</h2>
-          <p class="S1_Semibold_36">
+          <p class="S1_SemiBold_36">
             <span>We Provide Advanced Payment Solutions</span>
             <span>To Grow Your Business</span>
           </p>
         </div>
-        <div class="main__features__blocks">
-          <div class="main__features__blocks__row">
-            <div
-              class="main__features__blocks__row__item main__features__blocks__row__item--long"
-            >
+        <div class="features__blocks">
+          <div class="features__row">
+            <div class="features__item features__item--long">
               <div>
                 <h3 class="T5_SemiBold_48">
                   Turn your customers into loyal influencers
@@ -176,9 +180,7 @@
                 </p>
               </div>
             </div>
-            <div
-              class="main__features__blocks__row__item main__features__blocks__row__item--short"
-            >
+            <div class="features__item features__item--short">
               <div>
                 <h3 class="T5_SemiBold_48">
                   Harness the power of buying in bulk
@@ -191,10 +193,8 @@
               </div>
             </div>
           </div>
-          <div class="main__features__blocks__row">
-            <div
-              class="main__features__blocks__row__item main__features__blocks__row__item--short"
-            >
+          <div class="features__row">
+            <div class="features__item features__item--short">
               <div>
                 <h3 class="T5_SemiBold_48">
                   Supercharge Loyalty With Instant Cash Back
@@ -205,9 +205,7 @@
                 </p>
               </div>
             </div>
-            <div
-              class="main__features__blocks__row__item main__features__blocks__row__item--long"
-            >
+            <div class="features__item features__item--long">
               <div>
                 <h3 class="T5_SemiBold_48">
                   Seasoned with AI and Gamification
@@ -225,7 +223,7 @@
       <section class="main__brand-awarness">
         <div>
           <div>
-            <div class="main__brand-awarness__contact-div">
+            <div class="brand-awarness__contact-div">
               <h3 class="T3_Bold_64">Let Your Business Grow</h3>
               <button type="button" class="primary_button S4_SemiBold_20">
                 Contact sales
@@ -233,8 +231,8 @@
             </div>
           </div>
 
-          <div class="main__brand-awarness__socials">
-            <div class="main__brand-awarness__socials__textarea">
+          <div class="brand-awarness__socials">
+            <div class="socials__textarea">
               <!--Тут хз, но с дизайном не сходится размер шрифта 
               почему-то он тут больше-->
               <h2 class="T2_Bold_96">Your Brand Awareness Matters</h2>
@@ -243,7 +241,7 @@
                 surface including Instagram, Facebook, Twitter and TikTok
               </p>
             </div>
-            <div class="main__brand-awarness__socials__icons">
+            <div class="socials__icons">
               <a href="#"
                 ><img
                   src="/public/img/brand-awarness/icons/Facebook.svg"
@@ -266,7 +264,7 @@
               /></a>
             </div>
           </div>
-          <div class="main__brand-awarness__associates">
+          <div class="brand-awarness__associates">
             <ul>
               <li>
                 <a href="#"
@@ -310,24 +308,26 @@
     </main>
     <footer>
       <div>
-        <nav class="footer__nav">
+        <nav class="footer__footer-nav">
           <div>
             <div>
-              <a href="#" class="header_container--logo">
-                <div class="header_container--logo--logo_img">
+              <a href="#" class="logo">
+                <div class="logo__img">
                   <img src="/public/img/logo/Logo.svg" />
                 </div>
-                <p class="header_container--logo--logo_name">budss</p>
+                <p class="logo__title">budss</p>
               </a>
             </div>
 
-            <div class="footer__nav__pages S5_Medium_20">
+            <div class="footer-nav__pages S5_Medium_20">
               <a href="#">For Business</a>
               <a href="#">For Customers</a>
             </div>
 
-            <div class="footer__nav__buttons">
-              <button class="primary_button S4_SemiBold_20">
+            <div class="footer-nav__buttons">
+              <button
+                class="primary_button primary_button--dark_bg S4_SemiBold_20"
+              >
                 Contact sales
               </button>
               <div>
@@ -347,7 +347,7 @@
             </div>
           </div>
           <hr />
-          <div class="footer__nav__legal">
+          <div class="footer-nav__legal">
             <p class="B5_Light_14">
               © Copyright 2023, All Rights Reserved by Budss
             </p>

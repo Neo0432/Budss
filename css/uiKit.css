@@ -23,9 +23,74 @@
   --additional_02: #ec1211;
 }
 
-/*TEXT*/
+/* ================= TEXT ================= */
 
-/*Title*/
+/* ----------------- Fonts -----------------*/
+@font-face {
+  font-family: "Outfit-Thin";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 100;
+  src: url("../public/fonts/Outfit-Thin.woff2");
+}
+@font-face {
+  font-family: "Outfit-ExtraLight";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 200;
+  src: url("../public/fonts/Outfit-ExtraLight.woff2");
+}
+@font-face {
+  font-family: "Outfit-Light";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../public/fonts/Outfit-Light.woff2");
+}
+@font-face {
+  font-family: "Outfit-Regular";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../public/fonts/Outfit-Regular.woff2");
+}
+@font-face {
+  font-family: "Outfit-Medium";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../public/fonts/Outfit-Medium.woff2");
+}
+@font-face {
+  font-family: "Outfit-SemiBold";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../public/fonts/Outfit-SemiBold.woff2");
+}
+@font-face {
+  font-family: "Outfit-Bold";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../public/fonts/Outfit-Bold.woff2");
+}
+@font-face {
+  font-family: "Outfit-ExtraBold";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 800;
+  src: url("../public/fonts/Outfit-ExtraBold.woff2");
+}
+@font-face {
+  font-family: "Outfit-Black";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../public/fonts/Outfit-Black.woff2");
+}
+
+/* ----------------- Title ----------------- */
 .T1_Bold_128 {
   font-family: "Outfit-Bold";
   font-size: 8rem;
@@ -67,13 +132,13 @@
   line-height: 106%;
 }
 
-/*Subtitle*/
-.S1_Semibold_36 {
+/* ----------------- Subtitle ----------------- */
+.S1_SemiBold_36 {
   font-family: "Outfit-Semibold";
   font-size: 2.25rem;
   line-height: normal;
 }
-.S2_Semibold_24 {
+.S2_SemiBold_24 {
   font-family: "Outfit-Semibold";
   font-size: 1.5rem;
   line-height: 120%;
@@ -104,7 +169,7 @@
   line-height: 140%;
 }
 
-/*Body*/
+/* ----------------- Body ----------------- */
 .B1_Medium_16 {
   font-family: "Outfit-Medium";
   font-size: 1rem;
@@ -142,7 +207,22 @@
   line-height: 1.25rem;
 }
 
-/* ================= BUTTONS =================*/
+/* ================= LOGO ================= */
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo__img {
+  display: flex;
+  max-height: 2.25rem;
+}
+.logo__title {
+  font-family: "Outfit-SemiBold";
+  font-size: 2.25rem;
+  line-height: normal;
+}
+
+/* ================= BUTTONS ================= */
 .primary_button,
 .secondary_button {
   display: flex;
@@ -179,7 +259,9 @@
 }
 
 .primary_button--dark_bg {
-  border: 4px solid var(--primary_01);
+  &:hover {
+    border: 4px solid var(--primary_01);
+  }
 }
 
 .secondary_button {
@@ -206,7 +288,7 @@
   }
 }
 
-/*INPUT*/
+/* ================= INPUTS ================= */
 .input_div {
   position: relative;
   padding-top: 1.625rem;
