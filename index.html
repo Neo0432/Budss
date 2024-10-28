@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <!-- <link rel="stylesheet" href="./css/header.css" /> -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/contactFormModal.css" />
     <title>Budss</title>
   </head>
   <body>
@@ -28,6 +28,7 @@
           <button
             type="button"
             class="primary_button primary_button--dark_bg S4_SemiBold_20"
+            onclick="openDialog()"
           >
             Contact Sales
           </button>
@@ -50,6 +51,7 @@
           <button
             type="button"
             class="primary_button primary_button--dark_bg S4_SemiBold_20"
+            onclick="openDialog()"
           >
             Contact sales
           </button>
@@ -225,7 +227,11 @@
           <div>
             <div class="brand-awarness__contact-div">
               <h3 class="T3_Bold_64">Let Your Business Grow</h3>
-              <button type="button" class="primary_button S4_SemiBold_20">
+              <button
+                type="button"
+                class="primary_button S4_SemiBold_20"
+                onclick="openDialog()"
+              >
                 Contact sales
               </button>
             </div>
@@ -326,7 +332,8 @@
 
             <div class="footer-nav__buttons">
               <button
-                class="primary_button primary_button--dark_bg S4_SemiBold_20"
+                class="primary_button primary_button--dark_bg S4_SemiBold_20 contact-button"
+                onclick="openDialog()"
               >
                 Contact sales
               </button>
@@ -360,5 +367,94 @@
         </nav>
       </div>
     </footer>
+
+    <dialog id="dialog-contact-form">
+      <form action="" method="dialog" name="modalForm">
+        <button
+          type="button"
+          class="form__close-button"
+          id="dialog-close-button"
+          onclick="closeDialog()"
+        ></button>
+        <div>
+          <div class="input-div">
+            <input
+              type="text"
+              name=""
+              required
+              id="username"
+              class="input-div__form-input B4_Regular_14"
+              placeholder="Enter name"
+              autocomplete="off"
+            />
+            <label for="username" class="B3_Medium_14">Name</label>
+          </div>
+          <div class="input-div">
+            <input
+              type="email"
+              name=""
+              required
+              id="userMail"
+              class="input-div__form-input B4_Regular_14"
+              placeholder="Enter email"
+              autocomplete="off"
+            />
+            <label for="userMail" class="B3_Medium_14">Email</label>
+          </div>
+          <div class="input-div">
+            <input
+              type="tel"
+              name=""
+              required
+              id="tel"
+              class="input-div__form-input B4_Regular_14"
+              placeholder="+ 1 900 000 00 00"
+              autocomplete="off"
+            />
+            <label for="tel" class="B3_Medium_14">Phone number</label>
+          </div>
+          <div class="input-div">
+            <input
+              type="text"
+              name=""
+              id="userCompany"
+              class="input-div__form-input B4_Regular_14"
+              placeholder="Enter company"
+              autocomplete="off"
+            />
+            <label for="userCompany" class="B3_Medium_14">Company</label>
+          </div>
+          <div class="input-div">
+            <input
+              type="url"
+              name=""
+              id="userWebsite"
+              class="input-div__form-input B4_Regular_14"
+              placeholder="Enter Website/Store URL"
+              autocomplete="off"
+            />
+            <label for="userWebsite" class="B3_Medium_14"
+              >Website/Store URL</label
+            >
+          </div>
+        </div>
+        <p class="B5_Light_14">
+          By submitting this form you are agreeing to Budss&#39;s
+          <a href="#" class="B6_Light_14_Underline">Privacy Policy</a> and
+          <a href="#" class="B6_Light_14_Underline">Terms of Use</a>
+        </p>
+        <button
+          type="submit"
+          id="formModal-submit-button"
+          disabled
+          class="primary_button S4_SemiBold_20"
+        >
+          Contact Sales
+        </button>
+      </form>
+    </dialog>
+
+    <script src="/scripts/contactFormModal.js"></script>
+    <script src="/scripts/formValidation.js"></script>
   </body>
 </html>

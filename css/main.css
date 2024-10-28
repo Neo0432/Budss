@@ -11,12 +11,15 @@ a {
 }
 body {
   margin: auto;
+  overflow: hidden;
+  overflow-y: auto;
+
   /* background-color: var(--grayscale_01); */
 }
 
 .page-nav {
   background-color: var(--secondary_02);
-  width: 100%;
+  width: 100vw;
   & > div {
     display: flex;
     width: 100%;
@@ -45,7 +48,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 4.44rem;
   background-color: var(--grayscale_01);
 }
@@ -62,7 +65,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 6.25rem;
-  width: 100%;
+  width: 100vw;
   background-color: var(--grayscale_01);
 }
 main > section {
@@ -445,7 +448,7 @@ main > section {
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
   background-color: var(--grayscale_01);
   & > div {
     max-width: 1440px;

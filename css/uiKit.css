@@ -234,6 +234,7 @@
   border-radius: 1rem;
   outline: none;
   color: var(--grayscale_07);
+  transition: all 0.3s ease-in-out;
 }
 
 .primary_button {
@@ -289,21 +290,23 @@
 }
 
 /* ================= INPUTS ================= */
-.input_div {
+.input-div {
   position: relative;
   padding-top: 1.625rem;
   display: flex;
   flex-direction: column;
 }
-.input_div--form_input {
+.input-div__form-input {
   display: flex;
   width: 100%;
   padding: 0.625rem 1rem;
   border: 1px solid #f1f1f1;
   border-radius: 0.875rem;
   color: #070707;
+  transition: all 0.3s ease-in-out;
   &::placeholder {
     color: #a7a7a7;
+    transition: all 0.3s ease-in-out;
   }
   & ~ label {
     position: absolute;
@@ -320,7 +323,6 @@
   &:focus {
     outline-offset: -1px;
     outline: #a7a7a7 solid 1px;
-    /* border-color: #a7a7a7; */
     &::placeholder {
       color: transparent;
     }
@@ -334,18 +336,18 @@
     }
   }
 }
-.input_div--form_input_invalid {
+.input-div__form-input--invalid {
   border-color: var(--additional_02);
 }
 
 /*Example*/
-/* <div class="input_div">
+/* <div class="input-div">
 <input
   type="tel"
   name=""
   required
   id="tel"
-  class="input_div--form_input B4_Regular_14"
+  class="input-div__form-input B4_Regular_14"
   placeholder="Enter name"
   autocomplete="off"
 />

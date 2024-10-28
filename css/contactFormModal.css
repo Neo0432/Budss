@@ -1,0 +1,91 @@
+dialog {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background: transparent;
+  /* width: 100%; */
+  /* height: 100%; */
+  border: none;
+  stroke: none;
+  z-index: 99;
+  &::backdrop {
+    background-color: #00000033;
+  }
+}
+dialog > form {
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  gap: 1.25rem;
+  width: 26.1rem;
+  background-color: var(--grayscale_07);
+  border-radius: 1.25rem;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  & p {
+    color: var(--grayscale_00);
+  }
+  & a {
+    color: var(--primary_01);
+  }
+}
+
+.form__close-button {
+  position: absolute;
+  box-sizing: content-box;
+  z-index: 99;
+  right: 1rem;
+  top: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.375rem;
+  background-color: transparent;
+  border: none;
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    width: 0.625rem;
+    height: 0;
+    border: 1.5px solid var(--grayscale_03);
+    border-radius: 999px;
+  }
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+.hystmodal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  padding: 2rem 0;
+}
+
+.hystmodal__opened {
+  position: fixed;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+}
