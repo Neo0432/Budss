@@ -288,6 +288,9 @@
     color: var(--grayscale_03);
   }
 }
+.secondary_button--T-00 {
+  color: var(--grayscale_00);
+}
 
 /* ================= INPUTS ================= */
 .input-div {

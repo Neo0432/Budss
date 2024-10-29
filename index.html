@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/contactFormModal.css" />
+    <link rel="stylesheet" href="/css/cookies.css" />
     <title>Budss</title>
   </head>
   <body>
@@ -454,7 +455,33 @@
       </form>
     </dialog>
 
+    <div class="cookies">
+      <button class="cookies__close-button" onclick="diclineCookies()"></button>
+      <p class="S7_Light_20">
+        This website uses cookies to ensure you get the best experience on our
+        website. They also allow us to analyze user behavior in order to
+        constantly improve the website for you.
+      </p>
+      <div class="cookies__buttons">
+        <button
+          type="button"
+          class="primary_button S4_SemiBold_20"
+          onclick="acceptCookies()"
+        >
+          Accept
+        </button>
+        <button
+          type="button"
+          class="secondary_button secondary_button--T-00 S4_SemiBold_20"
+          onclick="diclineCookies()"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+
     <script src="/scripts/contactFormModal.js"></script>
     <script src="/scripts/formValidation.js"></script>
+    <script src="/scripts/cookies.js"></script>
   </body>
 </html>
