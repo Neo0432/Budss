@@ -16,17 +16,20 @@ function ScrollWidth() {
 const body = document.body;
 const scrollWidth = ScrollWidth();
 
-const openDialog = (e) => {
+const openDialog = () => {
   dialog.showModal();
   body.style.paddingRight = +body.style.paddingRight + scrollWidth + "px";
   body.style.overflow = "hidden";
 };
 
-const closeDialog = (e) => {
+const closeDialog = () => {
   dialog.close();
+};
+
+dialog.addEventListener("close", () => {
   body.style.paddingRight = +body.style.paddingRight - scrollWidth + "px";
   body.style.overflowY = "auto";
-};
+});
 
 window.addEventListener("keydown", (e) => {
   if (e.code == "Escape" && dialog.open) {
