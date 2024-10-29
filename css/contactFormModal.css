@@ -29,6 +29,15 @@ dialog > form {
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
+    &::after {
+      content: attr(data-after);
+      margin-top: 0.625rem;
+      color: var(--additional_02);
+
+      font-family: "Outfit-Regular";
+      font-size: 1rem;
+      line-height: normal;
+    }
   }
   & p {
     color: var(--grayscale_00);
@@ -64,28 +73,4 @@ dialog > form {
   &::after {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
-}
-
-.hystmodal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  overflow: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
-  padding: 2rem 0;
-}
-
-.hystmodal__opened {
-  position: fixed;
-  right: 0;
-  left: 0;
-  overflow: hidden;
 }

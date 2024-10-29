@@ -295,9 +295,18 @@
 /* ================= INPUTS ================= */
 .input-div {
   position: relative;
-  padding-top: 1.625rem;
   display: flex;
   flex-direction: column;
+  padding-top: 1.625rem;
+  gap: 0.25rem;
+  &::after {
+    content: attr(data-after);
+    color: var(--additional_02);
+
+    font-family: "Outfit-Regular";
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
 }
 .input-div__form-input {
   display: flex;

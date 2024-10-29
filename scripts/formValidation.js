@@ -6,10 +6,12 @@ const submitButton = document.getElementById("formModal-submit-button");
 const checkInputsForNull = (e) => {
   const input = e.target;
   const classes = input.classList;
-  console.log(input.value);
+  const parent = input.closest(".input-div");
+  // console.log(parent.closest(".inputs-area"));
   if (input.value == "") {
     classes.add("input-div__form-input--invalid");
-    input.addEventListener("focus", toggleInvalid);
+    parent.setAttribute("data-after", "This field is required.");
+    input.addEventListener("focus", (e) => toggleInvalid(e, parent));
   } else {
     input.removeEventListener("focus", toggleInvalid);
   }
@@ -17,17 +19,26 @@ const checkInputsForNull = (e) => {
   isReadyForSubmit(inputs);
 };
 
-const toggleInvalid = (e) => {
-  e.target.classList.toggle("input-div__form-input--invalid");
+const toggleInvalid = (e, parent) => {
+  e.target.classList.remove("input-div__form-input--invalid");
+  parent.setAttribute("data-after", "");
 };
 
-function isReadyForSubmit(inputsArray) {
-  for (let i = 0; i < inputs.length; i++) {
-    if (inputs[i].value == "" && inputs[i].required) {
+function isReadyForSubmit(inputsArr) {
+  const inputsArea = document.getElementById("contact-inputs");
+  for (let i = 0; i < inputsArr.length; i++) {
+    if (inputsArr[i].value == "" && inputsArr[i].required) {
       submitButton.disabled = true;
+      if (inputsArr[i].classList.contains("input-div__form-input--invalid")) {
+        inputsArea.setAttribute(
+          "data-after",
+          "Please fill in all required fields"
+        );
+      }
       return;
     }
   }
+  inputsArea.setAttribute("data-after", "");
   console.log(submitButton.disabled);
   submitButton.disabled = false;
 }
