@@ -373,9 +373,9 @@
       <form action="" method="dialog" name="modalForm">
         <button
           type="button"
-          class="form__close-button"
+          class="close-button"
           id="dialog-close-button"
-          onclick="closeDialog()"
+          onclick="closeDialog(event)"
         ></button>
         <div id="contact-inputs">
           <div class="input-div">
@@ -453,6 +453,23 @@
           Contact Sales
         </button>
       </form>
+    </dialog>
+    <dialog class="dialog-success-submit">
+      <div>
+        <button class="close-button" onclick="closeDialog(event)"></button>
+        <img src=".//public/img/form/SuccessSubmitHero.svg" alt="" />
+        <h2 class="S1_SemiBold_36">Thank you!</h2>
+        <p class="S3_Regular_24">
+          Thank you, we have received your application and will contact you
+          soon!
+        </p>
+        <button
+          class="primary_button S4_SemiBold_20"
+          onclick="closeDialog(event)"
+        >
+          Super!
+        </button>
+      </div>
     </dialog>
 
     <div class="cookies">

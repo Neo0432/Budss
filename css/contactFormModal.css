@@ -7,13 +7,13 @@ dialog {
   margin: auto;
   background: transparent;
   border: none;
-  stroke: none;
+  outline: none;
   z-index: 99;
   &::backdrop {
     background-color: #00000033;
   }
 }
-dialog > form {
+dialog#dialog-contact-form > form {
   margin: auto;
   position: relative;
   display: flex;
@@ -45,7 +45,7 @@ dialog > form {
   }
 }
 
-.form__close-button {
+.close-button {
   position: absolute;
   box-sizing: content-box;
   z-index: 99;
@@ -70,5 +70,31 @@ dialog > form {
   }
   &::after {
     transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+dialog.dialog-success-submit > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+  gap: 1.25rem;
+  width: 26.06rem;
+  height: fit-content;
+  border-radius: 1.25rem;
+  background-color: var(--grayscale_07);
+
+  & h2 {
+    color: var(--primary_02);
+  }
+  & p {
+    color: var(--grayscale_02);
+    text-align: center;
+    margin-inline: -0.25rem;
+    text-wrap: pretty;
+  }
+  & button:last-child {
+    width: 100%;
   }
 }

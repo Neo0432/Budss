@@ -7,7 +7,6 @@ const checkInputsForNull = (e) => {
   const input = e.target;
   const classes = input.classList;
   const parent = input.closest(".input-div");
-  // console.log(parent.closest(".inputs-area"));
   if (input.value == "") {
     classes.add("input-div__form-input--invalid");
     parent.setAttribute("data-after", "This field is required.");
