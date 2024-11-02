@@ -315,6 +315,8 @@ main > section {
   padding: 2.5rem;
   & p,
   h3 {
+    position: relative;
+    z-index: 2;
     color: var(--grayscale_00);
   }
   &::after {
@@ -617,6 +619,10 @@ button {
       min-width: 336px;
     }
   }
+
+  .features__item {
+    padding-inline: 1.25rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -642,8 +648,10 @@ button {
   .main__about {
     padding-inline: 1.3rem;
   }
-  .features__item {
-  } /*тут кароче эта хуйня да*/
+
+  .main__features {
+    padding-inline: 1.33rem;
+  }
 
   .footer__footer-nav {
     & > div {

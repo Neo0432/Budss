@@ -72,3 +72,19 @@
 
 /*area-hidden="true"
 tabindex="-1"*/
+
+@media (max-width: 1024px) {
+  .cookies {
+    flex-direction: column;
+    gap: 3.3rem;
+    /* padding-right: none; */
+    padding: 2.5rem 1.67rem;
+  }
+  .cookies__buttons {
+    flex-direction: column;
+    width: 100%;
+    & > button {
+      width: 100%;
+    }
+  }
+}
