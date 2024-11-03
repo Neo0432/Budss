@@ -191,12 +191,18 @@ main > section {
     z-index: 3;
     position: absolute;
     height: 38.94rem;
-    top: calc(50% - 19.47rem);
-    left: calc(50% - (19.25rem / 2));
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* margin: auto; */
+    /* margin-inline: auto; */
+    /* top: calc(50% - 19.47rem);
+    left: calc(50% - (19.25rem / 2)); */
     margin-inline: auto;
   }
 }
-.works__text {
+.works__works-rows {
   margin: 2.875rem 0;
   overflow: hidden;
   text-wrap: nowrap;
@@ -205,26 +211,28 @@ main > section {
     gap: 4.25rem;
     list-style-type: none;
   }
-  & ul > li {
-    position: relative;
-    display: flex;
-    animation: text-slide 10s linear infinite 0s reverse;
-    &:nth-child(1) > p {
-      color: var(--secondary_01);
-    }
-    &:nth-child(2) {
-      animation-direction: normal;
-      animation-delay: -6s; /*чтобы все <li/> выезжали в центр в одно время*/
-      & p {
-        color: var(--primary_02);
-      }
-    }
-    &:nth-child(3) > p {
-      color: var(--secondary_02);
+}
+
+.works-rows__row {
+  position: relative;
+  display: flex;
+  animation: text-slide 10s linear infinite 0s reverse;
+  &:nth-child(1) > p {
+    color: var(--secondary_01);
+  }
+  &:nth-child(2) {
+    animation-direction: normal;
+    animation-delay: -6s; /*чтобы все <li/> выезжали в центр в одно время*/
+    & p {
+      color: var(--primary_02);
     }
   }
-  & ul > li > p::after,
-  ul > li > p::before {
+  &:nth-child(3) > p {
+    color: var(--secondary_02);
+  }
+
+  & p::before,
+  & p::after {
     margin-inline: 1.25rem;
     content: "HOW BUDSS WORK";
     color: transparent;
@@ -242,14 +250,17 @@ main > section {
 }
 
 .main__metrics {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6.25rem;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   max-width: none;
   background-color: var(--primary_02);
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6.25rem;
+  }
 }
 .metrics__item {
   display: grid;
@@ -319,11 +330,19 @@ main > section {
     z-index: 2;
     color: var(--grayscale_00);
   }
+  & > div:not(.item__bags) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
   &::after {
     position: absolute;
     bottom: -0.25rem; /*Мне кажется костыль
     Но я хз как иначе*/
   }
+}
+.item__bags {
+  display: none;
 }
 
 /*Задаю две вариации, иначе при одной gap почему-то
@@ -345,7 +364,7 @@ main > section {
       }
     }
     &::after {
-      content: url(../public/img/features/cards-img/Phone.svg);
+      content: url(../public/img/features/cards-img/med&BigScreens/Phone.svg);
       left: 0;
     }
   }
@@ -355,7 +374,7 @@ main > section {
       max-width: 26rem;
     }
     &::after {
-      content: url(../public/img/features/cards-img/Bags.svg);
+      content: url(../public/img/features/cards-img/med&BigScreens/Bags.svg);
       right: 0;
     }
   }
@@ -370,7 +389,7 @@ main > section {
       }
     }
     &::after {
-      content: url(/public/img/features/cards-img/Like.svg);
+      content: url(/public/img/features/cards-img/med&BigScreens/Like.svg);
       right: 0;
     }
   }
@@ -380,7 +399,7 @@ main > section {
       max-width: 25.2rem;
     }
     &::after {
-      content: url(/public/img/features/cards-img/WithPhone.svg);
+      content: url(/public/img/features/cards-img/med&BigScreens/WithPhone.svg);
       right: 2.7rem;
     }
   }
@@ -441,7 +460,9 @@ main > section {
 
 .socials__icons {
   display: grid;
-  grid-template-columns: repeat(2, clamp(12rem, 15vw, 13.75rem));
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(2, clamp(7.5rem, 15vw, 13.75rem));
   grid-template-rows: max-content max-content;
   column-gap: 2.5rem;
   row-gap: 0.125rem;
@@ -507,10 +528,15 @@ footer {
 .footer-nav__legal a {
   color: var(--grayscale_03);
   text-decoration-color: var(--grayscale_03);
-  & > div {
-    display: flex;
-    gap: 1.25rem;
-  }
+}
+.legal__links--smallScreen {
+  display: none;
+  flex-direction: column;
+  gap: 1.33rem;
+}
+.legal__links--bigScreen {
+  display: flex;
+  gap: 1.25rem;
 }
 
 /* .form {
@@ -562,6 +588,15 @@ button {
       content: "";
     }
   }
+
+  .features__item {
+    padding: 1.875rem;
+  }
+
+  .features__item > div {
+    gap: 0.5rem;
+  }
+
   .brand-awarness__associates {
     & > ul {
       flex-wrap: wrap;
@@ -570,19 +605,21 @@ button {
 }
 
 @media (max-width: 1279px) {
-  .brand-awarness__socials {
-    flex-direction: column;
-    justify-content: start;
-    gap: 2rem;
-  }
-
-  .socials__textarea {
-    width: 100%;
-  }
-
   .features__row {
     flex-direction: column;
+    & .features__item {
+      padding: 1.25rem;
+      & > div {
+        gap: 0.5rem;
+        width: 60%;
+        max-width: none !important;
+        & > p {
+          max-width: none !important;
+        }
+      }
+    }
   }
+
   .features__item {
     width: 100%;
   }
@@ -599,12 +636,23 @@ button {
       flex-wrap: wrap;
     }
   }
+
+  .brand-awarness__socials {
+    flex-direction: column;
+    justify-content: start;
+    gap: 2rem;
+  }
+
+  .socials__textarea {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1024px) {
   .main__slogan-block {
     flex-direction: column;
     gap: 6.25rem;
+    padding-inline: 3.75rem;
     padding-bottom: 0;
   }
   .slogan-block__hero {
@@ -615,13 +663,6 @@ button {
 
   .about__features {
     grid-template-columns: 1fr;
-    & > div {
-      min-width: 336px;
-    }
-  }
-
-  .features__item {
-    padding-inline: 1.25rem;
   }
 }
 
@@ -632,7 +673,12 @@ button {
   main {
     gap: 4.3rem;
   }
-  .main > section {
+  main > section,
+  .page-nav > div,
+  .header_container,
+  .main__features,
+  .main__brand-awarness > div > div,
+  footer > div {
     padding-inline: 1.33rem;
   }
   .main__slogan-block {
@@ -645,12 +691,16 @@ button {
   .slogan-block__hero {
     width: calc(100% + 1.33rem);
   }
-  .main__about {
-    padding-inline: 1.3rem;
+  .features__item {
+    padding-inline: 1.66rem;
   }
 
-  .main__features {
+  .main__brand-awarness > div > div:first-child {
     padding-inline: 1.33rem;
+  }
+
+  .socials__icons {
+    row-gap: 2.5rem;
   }
 
   .footer__footer-nav {
@@ -664,6 +714,18 @@ button {
 }
 
 @media (max-width: 640px) {
+  html {
+    font-size: 12px;
+  }
+  .page-nav > div {
+    padding-inline: 0;
+  }
+  main {
+    gap: 3.33rem;
+  }
+  .slogan-block__textarea > p:last-child {
+    width: fit-content;
+  }
   .slogan-block__hero {
     width: calc(100% + 1.33rem);
     overflow: hidden;
@@ -674,22 +736,49 @@ button {
       }
       & > img:first-child {
         width: 80%;
-        min-width: 369px;
+        min-width: 30.75rem;
         height: auto;
       }
       & > img:last-child {
         /* width: 80.87%; */
         width: 62%;
-        min-width: 232.3px;
+        min-width: 19.36rem; /*12px*/
         /* height: auto; */
         /* max-width: 232.27px; */
       }
     }
   }
+  .main__about {
+    gap: 2.5rem;
+  }
+  .about__body p {
+    width: auto;
+  }
+  .about__features {
+    gap: 5rem;
+  }
+
+  .main__works {
+    margin: 3.33rem 0;
+    & > img {
+      height: 100%;
+    }
+  }
+
+  .works__works-rows {
+    margin: 5.08rem 0;
+    & > ul {
+      gap: 93px;
+    }
+  }
 
   .main__metrics {
-    flex-direction: column;
-    align-items: start;
+    & > div {
+      margin-inline: auto;
+      width: fit-content;
+      flex-direction: column;
+      align-items: start;
+    }
   }
   .metrics__item {
     display: flex;
@@ -699,7 +788,93 @@ button {
     }
   }
 
+  .features__textarea {
+    width: auto;
+  }
+
+  .features__textarea > p > span:last-child {
+    text-wrap: wrap;
+    &::after {
+      content: "";
+      /*replace to normal size shape*/
+    }
+  }
+
+  .features__row {
+    gap: 1.7rem;
+    & .features__item {
+      & > div {
+        width: 100%;
+        max-width: none !important;
+        & > p {
+          max-width: none !important;
+        }
+      }
+    }
+  }
   .features__item {
     padding: 1.66rem;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    min-height: 26.1rem;
+    & > div {
+      gap: 1.33rem;
+    }
+    &::after {
+      position: relative;
+      bottom: -2.13rem;
+    }
+  }
+  .item__bags {
+    position: relative;
+    right: 0;
+    bottom: -1.76rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0;
+    margin-top: -2.13rem;
+    width: calc(100% + 1.76rem) !important;
+  }
+
+  .features__row:first-child > .features__item:nth-child(1)::after {
+    content: url("/public/img/features/cards-img/smallScreens/Phone.svg");
+    left: -1.76rem;
+  }
+  .features__row:first-child > .features__item:nth-child(2) {
+    min-height: min-content;
+    /* margin-bottom: -1.76rem; */
+    /* height: fit-content; */
+    &::after {
+      content: "";
+    }
+  }
+  .features__row:last-child > .features__item:nth-child(1)::after {
+    content: url("/public/img/features/cards-img/smallScreens/Like.svg");
+    align-self: flex-end;
+    right: -1.76rem;
+  }
+  .features__row:last-child > .features__item:nth-child(2)::after {
+    content: url("/public/img/features/cards-img/smallScreens/WithPhone.svg");
+    align-self: flex-end;
+    right: 4.9rem;
+  }
+
+  .footer-nav__pages {
+    flex-direction: column;
+    gap: 1.33rem;
+  }
+
+  .footer-nav__buttons,
+  .footer-nav__buttons div {
+    flex-direction: column;
+  }
+
+  .legal__links--smallScreen {
+    display: flex;
+  }
+  .legal__links--bigScreen {
+    display: none;
   }
 }

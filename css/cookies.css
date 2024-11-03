@@ -72,6 +72,12 @@
 
 /*area-hidden="true"
 tabindex="-1"*/
+@media (max-width: 1279px) {
+  .cookies {
+    left: 2.8rem;
+    right: 2rem;
+  }
+}
 
 @media (max-width: 1024px) {
   .cookies {
@@ -86,5 +92,21 @@ tabindex="-1"*/
     & > button {
       width: 100%;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .cookies {
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cookies {
+    bottom: 1.67rem;
+    left: 1.67em;
+    right: 1.67rem;
   }
 }

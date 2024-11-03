@@ -76,7 +76,7 @@
             <div>
               <!--Item-->
               <img src="/public/img/about/icons/star.svg" alt="" />
-              <div>
+              <div class="about__item-textarea">
                 <!--TextArea-->
                 <h3 class="T4_Bold_48">Contactless</h3>
                 <p class="S3_Regular_24">
@@ -88,7 +88,7 @@
             <div>
               <!--Item-->
               <img src="/public/img/about/icons/arrow.svg" alt="" />
-              <div>
+              <div class="about__item-textarea">
                 <!--TextArea-->
                 <h3 class="T4_Bold_48">Increased Buying Power</h3>
                 <p class="S3_Regular_24">
@@ -99,7 +99,7 @@
             <div>
               <!--Item-->
               <img src="/public/img/about/icons/zigzag.svg" alt="" />
-              <div>
+              <div class="about__item-textarea">
                 <!--TextArea-->
                 <h3 class="T4_Bold_48">Analytics &#38; Insights</h3>
                 <p class="S3_Regular_24">
@@ -111,7 +111,7 @@
             <div>
               <!--Item-->
               <img src="/public/img/about/icons/paperclips.svg" alt="" />
-              <div>
+              <div class="about__item-textarea">
                 <!--TextArea-->
                 <h3 class="T4_Bold_48">Fraud Protection</h3>
                 <p class="S3_Regular_24">
@@ -126,17 +126,17 @@
       </section>
       <section class="main__works" aria-label="How Budss Works">
         <img src="/public/img/works/phone.svg" alt="" />
-        <div class="works__text">
+        <div class="works__works-rows">
           <ul>
-            <li>
+            <li class="works-rows__row">
               <p class="T1_Bold_128">HOW BUDSS WORKS</p>
               <p class="T1_Bold_128">HOW BUDSS WORKS</p>
             </li>
-            <li>
+            <li class="works-rows__row">
               <p class="T1_Bold_128">HOW BUDSS WORKS</p>
               <p class="T1_Bold_128">HOW BUDSS WORKS</p>
             </li>
-            <li>
+            <li class="works-rows__row">
               <p class="T1_Bold_128">HOW BUDSS WORKS</p>
               <p class="T1_Bold_128">HOW BUDSS WORKS</p>
             </li>
@@ -144,23 +144,25 @@
         </div>
       </section>
       <section class="main__metrics" aria-label="Key Business Metrics">
-        <div class="metrics__item">
-          <p class="T3_Bold_64">15%</p>
-          <p class="S2_SemiBold_24">
-            <span>Increase</span> <span>in Purchase Amount</span>
-          </p>
-        </div>
-        <div class="metrics__item">
-          <p class="T3_Bold_64">30%</p>
-          <p class="S2_SemiBold_24">
-            <span>Growth</span> <span>in Annual Sales</span>
-          </p>
-        </div>
-        <div class="metrics__item">
-          <p class="T3_Bold_64">10%</p>
-          <p class="S2_SemiBold_24">
-            <span>Growth in New</span> <span>Customers</span>
-          </p>
+        <div>
+          <div class="metrics__item">
+            <p class="T3_Bold_64">15%</p>
+            <p class="S2_SemiBold_24">
+              <span>Increase</span> <span>in Purchase Amount</span>
+            </p>
+          </div>
+          <div class="metrics__item">
+            <p class="T3_Bold_64">30%</p>
+            <p class="S2_SemiBold_24">
+              <span>Growth</span> <span>in Annual Sales</span>
+            </p>
+          </div>
+          <div class="metrics__item">
+            <p class="T3_Bold_64">10%</p>
+            <p class="S2_SemiBold_24">
+              <span>Growth in New</span> <span>Customers</span>
+            </p>
+          </div>
         </div>
       </section>
       <section class="main__features">
@@ -195,6 +197,20 @@
                   their friends & family to your personalized group.
                 </p>
               </div>
+              <div class="item__bags">
+                <img
+                  src="/public/img/features/cards-img/smallScreens/LeftBag.svg"
+                  alt=""
+                />
+                <img
+                  src="/public/img/features/cards-img/smallScreens/CenterBag.svg"
+                  alt=""
+                />
+                <img
+                  src="/public/img/features/cards-img/smallScreens/RightBag.svg"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
           <div class="features__row">
@@ -228,7 +244,9 @@
         <div>
           <div>
             <div class="brand-awarness__contact-div">
-              <h3 class="T3_Bold_64">Let Your Business Grow</h3>
+              <h3 class="T3_Bold_64" data-text-class-smallscreen="T6_Bold_40">
+                Let Your Business Grow
+              </h3>
               <button
                 type="button"
                 class="primary_button S4_SemiBold_20"
@@ -330,6 +348,11 @@
             <div class="footer-nav__pages S5_Medium_20">
               <a href="#">For Business</a>
               <a href="#">For Customers</a>
+              <div class="legal__links--smallScreen">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms Of Use - Seller</a>
+                <a href="#"> Terms of Use - Sellers & Customers</a>
+              </div>
             </div>
 
             <div class="footer-nav__buttons">
@@ -360,7 +383,7 @@
             <p class="B5_Light_14">
               © Copyright 2023, All Rights Reserved by Budss
             </p>
-            <div class="B6_Light_14_Underline">
+            <div class="B6_Light_14_Underline legal__links--bigScreen">
               <a href="#">Privacy Policy</a>
               <a href="#">Terms Of Use - Seller</a>
               <a href="#"> Terms of Use - Sellers & Customers</a>
@@ -459,7 +482,7 @@
       <div>
         <button class="close-button" onclick="closeDialog(event)"></button>
         <img src=".//public/img/form/SuccessSubmitHero.svg" alt="" />
-        <h2 class="S1_SemiBold_36">Thank you!</h2>
+        <p class="S1_SemiBold_36">Thank you!</p>
         <p class="S3_Regular_24">
           Thank you, we have received your application and will contact you
           soon!
@@ -501,5 +524,6 @@
     <script src="/scripts/contactFormModal.js"></script>
     <script src="/scripts/formValidation.js"></script>
     <script src="/scripts/cookies.js"></script>
+    <script src="/scripts/textClassesAdaptive.js"></script>
   </body>
 </html>

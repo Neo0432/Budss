@@ -218,8 +218,8 @@
 }
 .logo__title {
   font-family: "Outfit-SemiBold";
-  font-size: 2.25rem;
-  line-height: normal;
+  font-size: 2.31rem;
+  line-height: 1.06rem;
 }
 
 /* ================= BUTTONS ================= */
@@ -355,16 +355,60 @@
   border-color: var(--additional_02);
 }
 
-/*Example*/
-/* <div class="input-div">
-<input
-  type="tel"
-  name=""
-  required
-  id="tel"
-  class="input-div__form-input B4_Regular_14"
-  placeholder="Enter name"
-  autocomplete="off"
-/>
-<label for="tel" class="B3_Medium_14">Phone number</label>
-</div> */
+@media (max-width: 640px) {
+  .T1_Bold_128 {
+    font-size: 10.67rem;
+  }
+  .T2_Bold_96 {
+    font-size: 8rem;
+  }
+  .T3_Bold_64 {
+    font-size: 5.33rem;
+  }
+  .T4_Bold_48,
+  .T5_SemiBold_48 {
+    font-size: 4rem;
+  }
+  .T6_Bold_40 {
+    font-size: 3.33rem;
+  }
+  .T7_Bold_32 {
+    font-size: 2.67rem;
+  }
+  .T8_Bold_86 {
+    font-size: 7.17rem;
+  }
+
+  .S1_SemiBold_36 {
+    font-size: 3rem;
+  }
+  .S2_SemiBold_24,
+  .S3_Regular_24 {
+    font-size: 2rem;
+  }
+  .S4_SemiBold_20,
+  .S5_Medium_20,
+  .S6_Regular_20,
+  .S7_Light_20 {
+    font-size: 1.67rem;
+  }
+
+  .B1_Medium_16,
+  .B2_Regular_16 {
+    font-size: 1.33rem;
+  }
+  .B3_Medium_14,
+  .B4_Regular_14,
+  .B5_Light_14,
+  .B6_Light_14_Underline {
+    font-size: 1.17rem;
+  }
+  .B7_Regular_12 {
+    font-size: 1rem;
+  }
+
+  .logo__title {
+    font-size: 2.46rem;
+    line-height: 1.13rem;
+  }
+}
