@@ -407,8 +407,30 @@
     font-size: 1rem;
   }
 
+  .primary_button,
+  .secondary_button {
+    padding: 1.33rem 2.5rem;
+    border-radius: 1.33rem;
+  }
+
+  .header--button {
+    display: none;
+  }
+
   .logo__title {
     font-size: 2.46rem;
     line-height: 1.13rem;
+  }
+
+  .input-div {
+    padding-top: 2.167rem;
+    gap: 0.33rem;
+    &::after {
+      font-size: 1rem;
+    }
+  }
+
+  .input-div__form-input {
+    padding: 0.83rem 1.33rem;
   }
 }

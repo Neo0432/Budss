@@ -4,11 +4,15 @@ dialog {
   bottom: 0;
   right: 0;
   left: 0;
-  margin: auto;
+  /* margin: auto; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: transparent;
   border: none;
   outline: none;
   z-index: 99;
+  padding: 0;
   &::backdrop {
     background-color: #00000033;
   }
@@ -84,16 +88,41 @@ dialog.dialog-success-submit > div {
   border-radius: 1.25rem;
   background-color: var(--grayscale_07);
 
-  /* & h2 {
-    color: var(--primary_02);
-  } */
-  & p {
+  & > p {
     color: var(--grayscale_02);
     text-align: center;
     margin-inline: -0.25rem;
     text-wrap: pretty;
+    &:nth-of-type(1) {
+      color: var(--primary_02);
+    }
   }
   & button:last-child {
     width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  dialog {
+    /* padding-inline: 1.67rem; */
+  }
+  dialog#dialog-contact-form > form {
+    padding: 1.66rem 1.33rem;
+    /* margin-inline: 1.67rem; */
+    width: 100%;
+    min-width: 335px;
+    max-width: 400px;
+    gap: 1.67rem;
+
+    & > div {
+      gap: 0.83rem;
+      &::after {
+        margin-top: 0.83rem;
+        font-size: 1.33rem;
+      }
+    }
+    & > button[type="submit"] {
+      width: 100%;
+    }
   }
 }
