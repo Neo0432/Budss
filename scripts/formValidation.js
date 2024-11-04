@@ -38,7 +38,6 @@ function isReadyForSubmit(inputsArr) {
     }
   }
   inputsArea.setAttribute("data-after", "");
-  console.log(submitButton.disabled);
   submitButton.disabled = false;
 }
 

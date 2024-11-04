@@ -14,11 +14,14 @@ const featuresHeaderBlockDescription = document.querySelector(
   ".features__textarea"
 );
 const featuresItems = document.querySelectorAll(".features__item");
+const dialogSuccessSubmitDescription = document.querySelector(
+  ".dialog-success-submit"
+).children[0].children;
+
 let isSmallScreen = false;
 
 function handleResizeTextSmallScreen() {
   if (isSmallScreen) return;
-  console.log(isSmallScreen);
   //h1 header
   mainHeader.setAttribute("data-text-class-bigScreen", "T2_Bold_96");
   mainHeader.classList.remove("T2_Bold_96");
@@ -103,6 +106,21 @@ function handleResizeTextSmallScreen() {
     item.classList.remove("S6_Regular_20");
     item.classList.add("B2_Regular_16");
   }
+
+  for (let i = 0; i < dialogSuccessSubmitDescription.length; i++) {
+    if (!(i == 2 || i == 3)) continue;
+    const item = dialogSuccessSubmitDescription[i];
+    item.setAttribute("data-text-class-bigScreen", item.classList);
+    if (i == 2) {
+      item.classList.remove("S1_SemiBold_36");
+      item.classList.add("S2_SemiBold_24");
+    }
+    if (i == 3) {
+      item.classList.remove("S3_Regular_24");
+      item.classList.add("S6_Regular_20");
+    }
+  }
+
   isSmallScreen = true;
 }
 
@@ -214,6 +232,23 @@ function handleResizeTextBigScreen() {
     const newClass = item.getAttribute("data-text-class-bigScreen");
     if (newClass) {
       item.classList.remove("B2_Regular_16");
+      item.classList.add(newClass);
+    }
+  }
+
+  for (let i = 0; i < dialogSuccessSubmitDescription.length; i++) {
+    if (!(i == 2 || i == 3)) continue;
+    const newClass = dialogSuccessSubmitDescription[i].getAttribute(
+      "data-text-class-bigScreen"
+    );
+    const item = dialogSuccessSubmitDescription[i];
+    item.setAttribute("data-text-class-bigScreen", item.classList);
+    if (i == 2) {
+      item.classList.remove("S2_SemiBold_24");
+      item.classList.add(newClass);
+    }
+    if (i == 3) {
+      item.classList.remove("S6_Regular_20");
       item.classList.add(newClass);
     }
   }

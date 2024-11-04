@@ -233,19 +233,33 @@
   padding: 0.75rem 1.625rem;
   border-radius: 1rem;
   outline: none;
+  overflow: hidden;
   color: var(--grayscale_07);
   transition: all 0.3s ease-in-out;
+  &::after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    width: 105%;
+    height: 105%;
+    transform: translate(-100%) rotate(18deg);
+    transition: all 0.3s ease-in-out;
+    border-radius: 1rem;
+  }
   &:hover {
     transform: scale(1.03);
+    &::after {
+      transform: translate(0) rotate(0);
+    }
   }
 }
 
 .primary_button {
+  position: relative;
   background-color: var(--primary_01);
   border: 4px solid var(--primary_01);
-  &:hover {
-    background-color: var(--grayscale_01);
-    border-color: var(--grayscale_01);
+  &::after {
+    background-color: var(--primary_01);
   }
   &:focus {
     background-color: var(--primary_01);
@@ -353,6 +367,33 @@
 }
 .input-div__form-input--invalid {
   border-color: var(--additional_02);
+}
+
+/*fix for touch-devices*/
+@media (hover: hover) {
+  .primary_button {
+    &:hover {
+      border-color: var(--grayscale_01);
+      &::after {
+        background-color: var(--grayscale_01);
+      }
+    }
+  }
+
+  .secondary_button {
+    &:hover {
+      border-color: var(--primary_01);
+      &::after {
+        background-color: var(--primary_04);
+      }
+    }
+  }
+
+  .primary_button--dark_bg {
+    &:hover {
+      border: 4px solid var(--primary_01);
+    }
+  }
 }
 
 @media (max-width: 640px) {

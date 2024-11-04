@@ -103,9 +103,6 @@ dialog.dialog-success-submit > div {
 }
 
 @media (max-width: 640px) {
-  dialog {
-    /* padding-inline: 1.67rem; */
-  }
   dialog#dialog-contact-form > form {
     padding: 1.66rem 1.33rem;
     /* margin-inline: 1.67rem; */
@@ -123,6 +120,15 @@ dialog.dialog-success-submit > div {
     }
     & > button[type="submit"] {
       width: 100%;
+    }
+  }
+
+  dialog.dialog-success-submit > div {
+    width: auto;
+    padding: 3.33rem;
+    gap: 1.67rem;
+    & > p {
+      margin-inline: -1.67rem;
     }
   }
 }

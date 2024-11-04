@@ -32,7 +32,6 @@ const closeDialog = (e) => {
 dialog.addEventListener("close", (e) => {
   body.style.overflow = "";
   body.style.paddingRight = "";
-  console.log(2);
 });
 
 window.addEventListener("keydown", (e) => {
