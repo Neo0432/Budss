@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/hamburgerMenu.css" />
     <link rel="stylesheet" href="/css/contactFormModal.css" />
     <link rel="stylesheet" href="/css/cookies.css" />
     <title>Budss</title>
@@ -28,12 +29,12 @@
         <div>
           <button
             type="button"
-            class="primary_button primary_button--dark_bg header--button S4_SemiBold_20"
+            class="primary_button primary_button--dark_bg header__button--contact S4_SemiBold_20"
             onclick="openDialog()"
           >
             <span class="button__inner"> Contact Sales </span>
           </button>
-          <div class="header--burger"><span /></div>
+          <div class="header__button--hamburger"><span /></div>
         </div>
       </div>
     </header>
@@ -117,7 +118,7 @@
                 <h3 class="T4_Bold_48">Fraud Protection</h3>
                 <p class="S3_Regular_24">
                   Budss handles all payments with a fraud prevention algorithm
-                  to flag high risk purchases & a user set PIN code to keep
+                  to flag high risk purchases &#38; a user set PIN code to keep
                   payment info secure.
                 </p>
               </div>
@@ -195,7 +196,7 @@
                 <p class="S6_Regular_20">
                   Get at least 2X more sales with Budss Buying Groups. Your
                   customer base will grow exponentially as your customers add
-                  their friends & family to your personalized group.
+                  their friends &#38; family to your personalized group.
                 </p>
               </div>
               <div class="item__bags">
@@ -352,7 +353,7 @@
               <div class="legal__links--smallScreen">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms Of Use - Seller</a>
-                <a href="#"> Terms of Use - Sellers & Customers</a>
+                <a href="#"> Terms of Use - Sellers &#38; Customers</a>
               </div>
             </div>
 
@@ -387,12 +388,32 @@
             <div class="B6_Light_14_Underline legal__links--bigScreen">
               <a href="#">Privacy Policy</a>
               <a href="#">Terms Of Use - Seller</a>
-              <a href="#"> Terms of Use - Sellers & Customers</a>
+              <a href="#"> Terms of Use - Sellers &#38; Customers</a>
             </div>
           </div>
         </nav>
       </div>
     </footer>
+
+    <div class="hamburger-menu" isOpen="false">
+      <button
+        class="hamburger-menu__close-button"
+        onclick="menuCloseButton()"
+      ></button>
+      <button
+        class="primary_button primary_button--dark_bg S4_SemiBold_20 contact-button"
+        onclick="openDialog()"
+      >
+        Contact sales
+      </button>
+      <ul class="S5_Medium_20">
+        <li><a href="#">For Business</a></li>
+        <li><a href="#">For Customers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms Of Use - Seller</a></li>
+        <li><a href="#">Terms Of Use - Sellers &#38; Customers</a></li>
+      </ul>
+    </div>
 
     <dialog id="dialog-contact-form">
       <form action="" method="dialog" name="modalForm">
@@ -522,6 +543,7 @@
       </div>
     </div>
 
+    <script src="/scripts/burger-menu.js"></script>
     <script src="/scripts/contactFormModal.js"></script>
     <script src="/scripts/formValidation.js"></script>
     <script src="/scripts/cookies.js"></script>
