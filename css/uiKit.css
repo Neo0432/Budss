@@ -332,7 +332,7 @@
   border: 1px solid #f1f1f1;
   border-radius: 0.875rem;
   color: #070707;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out, padding 0.2s ease-in-out;
   &::placeholder {
     color: #a7a7a7;
     transition: all 0.3s ease-in-out;
@@ -365,8 +365,22 @@
     }
   }
 }
+
 .input-div__form-input--invalid {
   border-color: var(--additional_02);
+}
+
+.input-div__form-input--tel {
+  padding-left: 3rem;
+}
+
+.form-input__tel-flag {
+  position: absolute;
+  top: 2.25rem;
+  left: 1rem;
+  transform: translateY(25%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 
 /* ================= CLOSE-BUTTON ================= */
@@ -438,6 +452,16 @@
     &::before {
       width: 0.71rem;
     }
+  }
+
+  .input-div__form-input--tel {
+    padding-left: 3rem;
+  }
+
+  .form-input__tel-flag {
+    top: 2.36rem;
+    left: 1rem;
+    transform: none;
   }
 }
 
@@ -518,6 +542,16 @@
 
   .input-div__form-input {
     padding: 0.83rem 1.33rem;
+  }
+
+  .input-div__form-input--tel {
+    padding-left: 3rem;
+  }
+
+  .form-input__tel-flag {
+    top: 3rem;
+    left: 1rem;
+    transform: none;
   }
 
   .close-button {

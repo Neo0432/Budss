@@ -2,8 +2,6 @@ dialog {
   position: fixed;
   top: 0;
   bottom: 0;
-  right: 0;
-  left: 0;
   /* margin: auto; */
   top: 50%;
   left: 50%;
@@ -48,37 +46,6 @@ dialog#dialog-contact-form > form {
   }
 }
 
-.close-button {
-  position: absolute;
-  box-sizing: content-box;
-  z-index: 99;
-  right: 1rem;
-  top: 1rem;
-  width: 1.625rem;
-  height: 1.625rem;
-  padding: 0;
-
-  background-color: transparent;
-  border: none;
-
-  &::after,
-  &::before {
-    position: absolute;
-    content: "";
-    width: 0.625rem;
-    height: 0;
-    margin: 0;
-    border: 1.5px solid var(--grayscale_03);
-    border-radius: 999px;
-  }
-  &::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  &::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-}
-
 dialog.dialog-success-submit > div {
   position: relative;
   display: flex;
@@ -102,19 +69,6 @@ dialog.dialog-success-submit > div {
   }
   & button:last-child {
     width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .close-button {
-    right: 1.14rem;
-    top: 1.14rem;
-    width: 1.86rem;
-    height: 1.86rem;
-    &::after,
-    &::before {
-      width: 0.71rem;
-    }
   }
 }
 
@@ -146,15 +100,15 @@ dialog.dialog-success-submit > div {
       margin-inline: -1.67rem;
     }
   }
+}
 
-  .close-button {
-    right: 1.33rem;
-    top: 1.33rem;
-    width: 2.17rem;
-    height: 2.17rem;
-    &::after,
-    &::before {
-      width: 0.83rem;
-    }
+@media (max-width: 375px) {
+  dialog {
+    width: 100%;
+  }
+
+  dialog#dialog-contact-form > form {
+    min-width: 0;
+    width: 100%;
   }
 }

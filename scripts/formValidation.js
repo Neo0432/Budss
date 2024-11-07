@@ -7,7 +7,7 @@ const checkInputsForNull = (e) => {
   const input = e.target;
   const classes = input.classList;
   const parent = input.closest(".input-div");
-  if (input.value == "") {
+  if (input.value == "" || input.value == "+7 ") {
     classes.add("input-div__form-input--invalid");
     parent.setAttribute("data-after", "This field is required.");
     input.addEventListener("focus", (e) => toggleInvalid(e, parent));
