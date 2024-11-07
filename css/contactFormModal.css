@@ -57,8 +57,10 @@ dialog#dialog-contact-form > form {
   width: 1.625rem;
   height: 1.625rem;
   padding: 0;
+
   background-color: transparent;
   border: none;
+
   &::after,
   &::before {
     position: absolute;

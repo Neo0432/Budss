@@ -30,6 +30,7 @@ const closeDialog = (e) => {
 };
 
 dialog.addEventListener("close", (e) => {
+  dialogForm.reset();
   body.style.overflow = "";
   body.style.paddingRight = "";
 });
