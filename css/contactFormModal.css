@@ -2,7 +2,6 @@ dialog {
   position: fixed;
   top: 0;
   bottom: 0;
-  /* margin: auto; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -15,6 +14,7 @@ dialog {
     background-color: #00000033;
   }
 }
+
 dialog#dialog-contact-form > form {
   position: relative;
   display: flex;
@@ -76,8 +76,8 @@ dialog.dialog-success-submit > div {
   dialog#dialog-contact-form > form {
     padding: 1.66rem 1.33rem;
     width: 100%;
-    min-width: 335px;
-    max-width: 400px;
+    min-width: 27.91rem;
+    max-width: 33.33rem;
     gap: 1.67rem;
 
     & > div {

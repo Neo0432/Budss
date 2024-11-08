@@ -96,36 +96,43 @@
   font-size: 8rem;
   line-height: 106%;
 }
+
 .T2_Bold_96 {
   font-family: "Outfit-Bold";
   font-size: 6rem;
   line-height: 106%;
 }
+
 .T3_Bold_64 {
   font-family: "Outfit-Bold";
   font-size: 4rem;
   line-height: 106%;
 }
+
 .T4_Bold_48 {
   font-family: "Outfit-Bold";
   font-size: 3rem;
   line-height: 106%;
 }
+
 .T5_SemiBold_48 {
   font-family: "Outfit-SemiBold";
   font-size: 3rem;
   line-height: normal;
 }
+
 .T6_Bold_40 {
   font-family: "Outfit-Bold";
   font-size: 2.5rem;
   line-height: 106%;
 }
+
 .T7_Bold_32 {
   font-family: "Outfit-Bold";
   font-size: 2rem;
   line-height: 106%;
 }
+
 .T8_Bold_86 {
   font-family: "Outfit-Bold";
   font-size: 5.375rem;
@@ -138,31 +145,37 @@
   font-size: 2.25rem;
   line-height: normal;
 }
+
 .S2_SemiBold_24 {
   font-family: "Outfit-Semibold";
   font-size: 1.5rem;
   line-height: 120%;
 }
+
 .S3_Regular_24 {
   font-family: "Outfit-Regular";
   font-size: 1.5rem;
   line-height: 120%;
 }
+
 .S4_SemiBold_20 {
   font-family: "Outfit-Semibold";
   font-size: 1.25rem;
   line-height: normal;
 }
+
 .S5_Medium_20 {
   font-family: "Outfit-Medium";
   font-size: 1.25rem;
   line-height: normal;
 }
+
 .S6_Regular_20 {
   font-family: "Outfit-Regular";
   font-size: 1.25rem;
   line-height: 120%;
 }
+
 .S7_Light_20 {
   font-family: "Outfit-Light";
   font-size: 1.25rem;
@@ -175,32 +188,38 @@
   font-size: 1rem;
   line-height: normal;
 }
+
 .B2_Regular_16 {
   font-family: "Outfit-Regular";
   font-size: 1rem;
   line-height: normal;
 }
+
 .B3_Medium_14 {
   font-family: "Outfit-Medium";
   font-size: 0.875rem;
   line-height: 1.375rem;
 }
+
 .B4_Regular_14 {
   font-family: "Outfit-Regular";
   font-size: 0.875rem;
   line-height: 1.375rem;
 }
+
 .B5_Light_14 {
   font-family: "Outfit-Light";
   font-size: 0.875rem;
   line-height: 140%;
 }
+
 .B6_Light_14_Underline {
   font-family: "Outfit-Light";
   font-size: 0.875rem;
   line-height: 140%;
   text-decoration: underline;
 }
+
 .B7_Regular_12 {
   font-family: "Outfit-Regular";
   font-size: 0.75rem;
@@ -212,14 +231,107 @@
   display: flex;
   align-items: center;
 }
+
 .logo__img {
   display: flex;
   max-height: 2.25rem;
 }
+
 .logo__title {
   font-family: "Outfit-SemiBold";
   font-size: 2.31rem;
   line-height: 1.06rem;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 4.44rem;
+  background-color: var(--grayscale_01);
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  padding-inline: 3.75rem;
+}
+
+.header__button--hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.83rem 0.67rem;
+
+  & > span {
+    position: relative;
+    /* left: 0; */
+    height: 2px;
+    width: 1.83rem;
+  }
+
+  & > span,
+  & > span::before,
+  & > span::after {
+    background-color: var(--grayscale_07);
+    border-radius: 0.67rem;
+    left: 0;
+  }
+  & > span::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    transform: translateY(-0.58rem);
+  }
+  & > span::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    transform: translateY(0.58rem);
+  }
+}
+
+.header__button--business:not([data-page="business"]) {
+  display: none;
+}
+
+.header__button--customer[data-page="customer"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.875rem;
+
+  padding: 1rem 1.875rem;
+  border: 1px solid var(--primary_01);
+  border-radius: 1rem;
+
+  & > div {
+    width: 1px;
+    height: auto;
+    align-self: stretch;
+    border: 1px solid var(--grayscale_02);
+  }
+
+  & a {
+    height: fit-content;
+    line-height: 0;
+  }
+}
+
+.header__button--customer:not([data-page="customer"]) {
+  display: none;
 }
 
 /* ================= BUTTONS ================= */
@@ -303,8 +415,41 @@
     color: var(--grayscale_03);
   }
 }
+
 .secondary_button--T-00 {
   color: var(--grayscale_00);
+}
+
+/* ----------------- Close-Button ----------------- */
+.close-button {
+  position: absolute;
+  box-sizing: content-box;
+  z-index: 99;
+  right: 1rem;
+  top: 1rem;
+  width: 1.625rem;
+  height: 1.625rem;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    width: 0.625rem;
+    height: 0;
+    margin: 0;
+    border: 1.5px solid var(--grayscale_03);
+    border-radius: 999px;
+  }
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 }
 
 /* ================= INPUTS ================= */
@@ -323,6 +468,7 @@
     line-height: 1.25rem;
   }
 }
+
 .input-div__form-input {
   display: flex;
   width: 100%;
@@ -381,38 +527,6 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-/* ================= CLOSE-BUTTON ================= */
-.close-button {
-  position: absolute;
-  box-sizing: content-box;
-  z-index: 99;
-  right: 1rem;
-  top: 1rem;
-  width: 1.625rem;
-  height: 1.625rem;
-  padding: 0;
-
-  background-color: transparent;
-  border: none;
-
-  &::after,
-  &::before {
-    position: absolute;
-    content: "";
-    width: 0.625rem;
-    height: 0;
-    margin: 0;
-    border: 1.5px solid var(--grayscale_03);
-    border-radius: 999px;
-  }
-  &::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  &::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-}
-
 /*fix for touch-devices*/
 @media (hover: hover) {
   .primary_button:not([disabled]) {
@@ -467,22 +581,28 @@
   .T1_Bold_128 {
     font-size: 10.67rem;
   }
+
   .T2_Bold_96 {
     font-size: 8rem;
   }
+
   .T3_Bold_64 {
     font-size: 5.33rem;
   }
+
   .T4_Bold_48,
   .T5_SemiBold_48 {
     font-size: 4rem;
   }
+
   .T6_Bold_40 {
     font-size: 3.33rem;
   }
+
   .T7_Bold_32 {
     font-size: 2.67rem;
   }
+
   .T8_Bold_86 {
     font-size: 7.17rem;
   }
@@ -490,10 +610,12 @@
   .S1_SemiBold_36 {
     font-size: 3rem;
   }
+
   .S2_SemiBold_24,
   .S3_Regular_24 {
     font-size: 2rem;
   }
+
   .S4_SemiBold_20,
   .S5_Medium_20,
   .S6_Regular_20,
@@ -505,12 +627,14 @@
   .B2_Regular_16 {
     font-size: 1.33rem;
   }
+
   .B3_Medium_14,
   .B4_Regular_14,
   .B5_Light_14,
   .B6_Light_14_Underline {
     font-size: 1.17rem;
   }
+
   .B7_Regular_12 {
     font-size: 1rem;
   }
@@ -521,7 +645,7 @@
     border-radius: 1.33rem;
   }
 
-  .header__button--contact {
+  .header__button--business {
     display: none;
   }
 
