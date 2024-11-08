@@ -35,7 +35,7 @@
           >
             <span class="button__inner"> Contact Sales </span>
           </button>
-          <div class="header__button--hamburger"><span /></div>
+          <div class="header__button--hamburger"><span></span></div>
           <div class="header__button--customer" data-page="business">
             <a href="#">
               <img
@@ -411,7 +411,7 @@
       </div>
     </footer>
 
-    <div class="hamburger-menu" isOpen="false">
+    <div class="hamburger-menu" data-is-open="false">
       <button
         class="hamburger-menu__close-button"
         onclick="menuCloseButton()"
@@ -432,7 +432,7 @@
     </div>
 
     <dialog id="dialog-contact-form">
-      <form action="" method="dialog" name="modalForm">
+      <form method="dialog" name="modalForm">
         <button
           type="button"
           class="close-button"
@@ -443,7 +443,7 @@
           <div class="input-div">
             <input
               type="text"
-              name=""
+              name="username"
               required
               id="username"
               class="input-div__form-input B4_Regular_14"
@@ -455,7 +455,7 @@
           <div class="input-div">
             <input
               type="email"
-              name=""
+              name="email"
               required
               id="userMail"
               class="input-div__form-input B4_Regular_14"
@@ -472,7 +472,7 @@
             />
             <input
               type="tel"
-              name=""
+              name="telNumber"
               required
               id="telInput"
               class="input-div__form-input B4_Regular_14"
@@ -484,7 +484,7 @@
           <div class="input-div">
             <input
               type="text"
-              name=""
+              name="userCompany"
               id="userCompany"
               class="input-div__form-input B4_Regular_14"
               placeholder="Enter company"
@@ -495,7 +495,7 @@
           <div class="input-div">
             <input
               type="url"
-              name=""
+              name="userWebsite"
               id="userWebsite"
               class="input-div__form-input B4_Regular_14"
               placeholder="Enter Website/Store URL"

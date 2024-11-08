@@ -22,12 +22,12 @@
   }
 }
 
-.hamburger-menu[isOpen="false"] {
+.hamburger-menu[data-is-open="false"] {
   transform: translate(100%);
   opacity: 0;
 }
 
-.hamburger-menu[isOpen="true"] {
+.hamburger-menu[data-is-open="true"] {
   transform: none;
   opacity: 1;
 }
