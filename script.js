@@ -185,7 +185,11 @@ function getSmootherTransition(
     const intervalID = setInterval(() => {
       // computing how much an element will be displaced
       moveSpeed = a * (-currentPosition + xVertex) ** 2;
+
+      // set min-seed
       if (moveSpeed < 10) moveSpeed = 10;
+      // set max-speed
+      if (moveSpeed > 30) moveSpeed = 30;
 
       currentPosition = currentPosition + moveSpeed;
 
@@ -212,6 +216,7 @@ function getSmootherTransition(
     const intervalID = setInterval(() => {
       moveSpeed = a * (-currentPosition + xVertex) ** 2;
       if (moveSpeed < 10) moveSpeed = 10;
+      if (moveSpeed > 30) moveSpeed = 30;
 
       currentPosition = currentPosition + moveSpeed;
 
