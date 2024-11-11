@@ -4,13 +4,13 @@ html,
   box-sizing: border-box;
 }
 body {
-  background-color: #4c5b57;
+  background-color: #1e1e1e;
 }
 
 h1,
 p,
 a {
-  color: #ffffff;
+  color: #f5f5f5;
 }
 
 main {
@@ -57,7 +57,7 @@ section {
   width: 640px;
   margin-inline: 0.5rem;
   height: 100%;
-  background-color: aliceblue;
+  background-color: #cccccc;
 }
 
 .button--prev,
@@ -72,11 +72,11 @@ section {
   align-items: center;
   border: none;
   border-radius: 999px;
-  opacity: 0.75;
+  opacity: 0.5;
 
   width: 40px;
   height: 40px;
-  background-color: aliceblue;
+  background-color: #a8d5ba;
   transition: opacity 0.3s ease;
 }
 
@@ -96,4 +96,48 @@ section {
 .button--prev:hover,
 .button--next:hover {
   opacity: 1;
+  box-shadow: 0 0 20px -5px #a8d5ba;
+}
+
+.dots {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dots > div {
+  width: 20px;
+  height: 20px;
+
+  background-color: #a8d5ba;
+  opacity: 0.3;
+  border-radius: 999px;
+  border: 10px solid transparent;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    border: 6px solid #a8d5ba;
+    background-color: #1e1e1e;
+    opacity: 0.5;
+    cursor: pointer;
+    box-shadow: 0 0 10px #a8d5ba;
+  }
+}
+
+.dots > .active-dot {
+  background-color: #1e1e1e;
+  opacity: 1;
+  border: 5px solid #a8d5ba;
+
+  &:hover {
+    opacity: 1;
+    border-width: 5px;
+    box-shadow: none;
+  }
+  /* transform: scale(1.5); */
 }

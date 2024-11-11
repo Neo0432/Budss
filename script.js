@@ -4,6 +4,7 @@ const slidesBlock = document.querySelector(".slides");
 let slides = Array.from(slidesBlock.children);
 const prevButton = document.querySelector(".button--prev");
 const nextButton = document.querySelector(".button--next");
+const dots = document.querySelector(".dots");
 let isAnimationPlaying = false; // whether the transition animation is being played
 
 // checking for class. If doesen't have class - add class
@@ -23,6 +24,7 @@ slidesBlock.appendChild(firstSlide);
 
 //set data-attr (indexes) for each element
 setIndexes(slides);
+setDots(slides);
 
 // set initial position for elements
 moveToSlide(null, document.querySelector('[data-slide-index="0"]'), false);
@@ -42,6 +44,7 @@ function nextSlide() {
   OldCurrentSlide.classList.remove("slide-current");
   newCurrentSlide.classList.add("slide-current");
   moveToSlide(OldCurrentSlide, newCurrentSlide);
+  chandeActiveDot();
 }
 
 // backward button
@@ -56,6 +59,7 @@ function prevSlide() {
   OldCurrentSlide.classList.remove("slide-current");
   newCurrentSlide.classList.add("slide-current");
   moveToSlide(OldCurrentSlide, newCurrentSlide);
+  chandeActiveDot(null, false);
 }
 
 // assigning indexes to each element
@@ -64,6 +68,55 @@ function setIndexes(slidesArr) {
     slidesArr[i].setAttribute("data-slide-index", `${i - 1}`);
     if (i - 1 == 0) slidesArr[i].classList.add("slide-current");
   }
+}
+
+function setDots(slideArr) {
+  if (!slideArr) return;
+  let dotsCount = slideArr.length - 2;
+  for (let i = 0; i < dotsCount; i++) {
+    const dot = document.createElement("div");
+    dot.setAttribute("data-dot-index", i);
+    dots.append(dot);
+    dot.addEventListener("click", (e) => chandeActiveDot(e));
+  }
+  dots.firstChild.classList.add("active-dot");
+}
+
+function chandeActiveDot(e = null, forward = true) {
+  let activeDot = document.querySelector(".active-dot");
+
+  // if func was called from left or right button
+  if (e == null) {
+    activeDot.classList.remove("active-dot");
+    let newDotIndex;
+    if (forward) newDotIndex = +activeDot.getAttribute("data-dot-index") + 1;
+    else newDotIndex = +activeDot.getAttribute("data-dot-index") - 1;
+    if (newDotIndex > dots.children.length - 1) newDotIndex = 0;
+    else if (newDotIndex < 0) newDotIndex = dots.children.length - 1;
+    activeDot = document.querySelector(`[data-dot-index = '${newDotIndex}']`);
+    activeDot.classList.add("active-dot");
+    return;
+  }
+
+  if (activeDot == e.target) return;
+
+  const startSlide = document.querySelector(
+    `[data-slide-index = '${activeDot.getAttribute("data-dot-index")}']`
+  );
+
+  const endSlide = () => {
+    if (e != null)
+      return document.querySelector(
+        `[data-slide-index = '${e.target.getAttribute("data-dot-index")}' `
+      );
+  };
+  console.log(endSlide().getAttribute("data-slide-index"));
+
+  activeDot.classList.remove("active-dot");
+  activeDot = e.target;
+  activeDot.classList.add("active-dot");
+
+  moveToSlide(startSlide, endSlide());
 }
 
 // computing how much the block needs to be shifted
