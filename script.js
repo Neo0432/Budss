@@ -1,10 +1,11 @@
 "use strict";
 
 const slidesBlock = document.querySelector(".slides");
-let slides = Array.from(slidesBlock.children);
 const prevButton = document.querySelector(".button--prev");
 const nextButton = document.querySelector(".button--next");
+let slides = Array.from(slidesBlock.children);
 const dots = document.querySelector(".dots");
+
 let isAnimationPlaying = false; // whether the transition animation is being played
 
 // checking for class. If doesen't have class - add class
@@ -41,8 +42,6 @@ function nextSlide() {
       +OldCurrentSlide.getAttribute("data-slide-index") + 1
     }"]`
   );
-  OldCurrentSlide.classList.remove("slide-current");
-  newCurrentSlide.classList.add("slide-current");
   moveToSlide(OldCurrentSlide, newCurrentSlide);
   chandeActiveDot();
 }
@@ -56,8 +55,6 @@ function prevSlide() {
       OldCurrentSlide.getAttribute("data-slide-index") - 1
     }"]`
   );
-  OldCurrentSlide.classList.remove("slide-current");
-  newCurrentSlide.classList.add("slide-current");
   moveToSlide(OldCurrentSlide, newCurrentSlide);
   chandeActiveDot(null, false);
 }
@@ -121,6 +118,11 @@ function chandeActiveDot(e = null, forward = true) {
 
 // computing how much the block needs to be shifted
 function moveToSlide(oldSlide, slide, isAnimated = true) {
+  if (oldSlide != null && slide != null) {
+    oldSlide.classList.remove("slide-current");
+    slide.classList.add("slide-current");
+  }
+
   const blockSize = slide.offsetWidth;
   const blockIndex = +slide.getAttribute("data-slide-index") + 1;
   const blockGap =
@@ -159,79 +161,44 @@ function isLastSlide(oldSlide, slide) {
   }
 }
 
+function easyInOutQuad(t) {
+  return t < 0.5 ? 2 * t ** 2 : -1 + (4 - 2 * t) * t;
+}
+
 // computing non-linaar function for posititon
 function getSmootherTransition(
   startPosition,
   newPosition,
-  blockSize,
-  Element,
+  duration,
+  element,
   oldSlide,
   newSlide
 ) {
-  let moveSpeed = 0;
-  let leftPos = startPosition;
-  let currentPosition = startPosition;
+  const startTime = performance.now();
+  let currentTime = startTime;
+
+  const distance = newPosition - startPosition;
 
   isAnimationPlaying = true;
 
-  // speed multiplier
-  const a = 120 / Math.pow(startPosition, 2);
+  function animate() {
+    currentTime = performance.now();
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easyProgress = easyInOutQuad(progress);
+    element.style.left = `${startPosition + distance * easyProgress}px`;
 
-  // function's vertex == 0
-  const xVertex = startPosition + blockSize * 0.5;
-
-  // if moving backward
-  if (newPosition > startPosition) {
-    const intervalID = setInterval(() => {
-      // computing how much an element will be displaced
-      moveSpeed = a * (-currentPosition + xVertex) ** 2;
-
-      // set min-seed
-      if (moveSpeed < 10) moveSpeed = 10;
-      // set max-speed
-      if (moveSpeed > 30) moveSpeed = 30;
-
-      currentPosition = currentPosition + moveSpeed;
-
-      // computing new element position
-      leftPos = leftPos + moveSpeed;
-
-      // rewriting position of element
-      Element.style.left = leftPos + "px";
-
-      // last step of moving
-      if (newPosition - 30 <= leftPos) {
-        Element.style.left = newPosition + "px";
-        clearInterval(intervalID);
-
-        // if slide was last or first
-        isLastSlide(oldSlide, newSlide);
-
-        // buttons enabled
-        isAnimationPlaying = false;
-      }
-    }, 2);
-  } else {
-    // if moving forward
-    const intervalID = setInterval(() => {
-      moveSpeed = a * (-currentPosition + xVertex) ** 2;
-      if (moveSpeed < 10) moveSpeed = 10;
-      if (moveSpeed > 30) moveSpeed = 30;
-
-      currentPosition = currentPosition + moveSpeed;
-
-      leftPos = leftPos - moveSpeed;
-
-      Element.style.left = leftPos + "px";
-
-      if (newPosition + 30 >= leftPos) {
-        Element.style.left = newPosition + "px";
-        clearInterval(intervalID);
-
-        isLastSlide(oldSlide, newSlide);
-
-        isAnimationPlaying = false;
-      }
-    }, 2);
+    return progress;
   }
+
+  const intervalID = setInterval(() => {
+    const progress = animate();
+
+    if (progress == 1) {
+      console.log(progress);
+      isLastSlide(oldSlide, newSlide);
+      isAnimationPlaying = false;
+      clearInterval(intervalID);
+    }
+  });
 }
