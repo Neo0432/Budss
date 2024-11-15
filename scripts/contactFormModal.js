@@ -1,10 +1,11 @@
 "use strict";
 const dialog = document.getElementById("dialog-contact-form");
 const dialogForm = document.forms["modalForm"];
+const firsInput = document.querySelector(".input-div").children[0];
 const successSubmitAlert = document.querySelector(".dialog-success-submit");
 const closeButton = document.getElementById("dialog-close-button");
 
-function ScrollWidth() {
+function getScrollWidth() {
   let div = document.createElement("div");
   div.style.overflowY = "scroll";
   div.style.width = "50px";
@@ -16,16 +17,28 @@ function ScrollWidth() {
 }
 
 const body = document.body;
-const scrollWidth = ScrollWidth();
+const scrollWidth = getScrollWidth();
 
 const openDialog = () => {
   dialog.showModal();
   body.style.paddingRight = +body.style.paddingRight + scrollWidth + "px";
   body.style.overflow = "hidden";
+  firsInput.focus();
 };
 
-const closeDialog = (e) => {
-  const dialog = e.target.closest("dialog");
+const closeDialog = (e, dialog = null) => {
+  if (dialog === null) {
+    dialog = e.target.closest("dialog");
+  }
+
+  const inputs = document.forms["modalForm"].getElementsByTagName("input");
+  const inputsArea = document.getElementById("contact-inputs");
+  for (const input of inputs) {
+    const parent = input.closest(".input-div");
+    input.classList.remove("input-div__form-input--invalid");
+    parent.setAttribute("data-after", "");
+    inputsArea.setAttribute("data-after", "");
+  }
   dialog.close();
 };
 
@@ -39,7 +52,8 @@ window.addEventListener("keydown", (e) => {
   if (e.code == "Escape") {
     const openDialog = document.querySelector("dialog[open]");
     if (openDialog) {
-      openDialog.close();
+      closeButton.focus();
+      closeDialog(null, openDialog);
     }
   }
 });
@@ -56,7 +70,7 @@ dialogForm.addEventListener("submit", (e) => {
     body.style.paddingRight = +body.style.paddingRight + scrollWidth + "px";
     body.style.overflow = "hidden";
   };
-  const timeId = setTimeout(showSuccessAlert, 100); //duct-tape solution
+  const timeId = setTimeout(showSuccessAlert, 100); //workaround
   successSubmitAlert.addEventListener("close", (e) => {
     body.style.paddingRight = +body.style.paddingRight - scrollWidth + "px";
     body.style.overflow = "";

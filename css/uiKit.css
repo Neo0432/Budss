@@ -344,6 +344,7 @@ header {
   padding: 0.75rem 1.625rem;
   border-radius: 1rem;
   outline: none;
+  outline-offset: -2px;
   overflow: hidden;
   color: var(--grayscale_07);
   transition: all 0.3s ease-in-out;
@@ -354,10 +355,10 @@ header {
     width: 105%;
     height: 105%;
     transform: translate(-100%) rotate(18deg);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     border-radius: 1rem;
   }
-  &:not([disabled]):hover {
+  &:hover {
     transform: scale(1.03);
     &::after {
       transform: translate(0) rotate(0);
@@ -369,49 +370,90 @@ header {
   position: relative;
   background-color: var(--primary_01);
   border: 4px solid var(--primary_01);
+
   &::after {
     background-color: var(--primary_01);
   }
-  &:not([disabled]):hover {
+  &:focus {
+    outline: none;
     background-color: var(--primary_01);
-    outline: var(--primary_03) solid 4px;
-    outline-offset: -4px;
+    border-color: var(--primary_03);
+
+    &::after {
+      background-color: var(--primary_01);
+    }
   }
-  &:active {
+
+  &:hover {
+    border-color: var(--grayscale_01);
+
+    &::after {
+      background-color: var(--grayscale_01);
+    }
+  }
+
+  &:not([disabled]):active:hover {
     background-color: var(--primary_00);
     border-color: var(--primary_00);
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    &::after {
+      background-color: var(--primary_00);
+    }
   }
+
   &:disabled {
     background-color: var(--grayscale_03);
     border-color: var(--grayscale_03);
+    transform: none;
+
+    &::after {
+      content: "";
+    }
   }
 }
 
 .primary_button--dark_bg:hover {
-  border: 4px solid var(--primary_01);
+  outline: var(--primary_01) solid 2px;
+  border-color: transparent;
 }
 
 .secondary_button {
   background-color: transparent;
   border: 4px solid var(--primary_01);
   &:not([disabled]):hover {
-    background-color: var(--primary_04);
     border-color: var(--primary_01);
+
+    &::after {
+      background-color: var(--primary_04);
+    }
   }
   &:focus {
     background-color: transparent;
     border-color: var(--primary_04);
-    outline: var(--primary_03) solid 2px;
+    outline: var(--primary_01) solid 2px;
     outline-offset: -2px;
+
+    &::after {
+      background-color: transparent;
+    }
   }
-  &:active {
+  &:not([disabled]):active:hover {
     background-color: transparent;
     border-color: var(--primary_02);
+    &::after {
+      background-color: transparent;
+    }
   }
   &:disabled {
     background-color: transparent;
     border-color: var(--grayscale_03);
     color: var(--grayscale_03);
+    transform: none;
+
+    &::after {
+      content: "";
+    }
   }
 }
 
@@ -526,31 +568,13 @@ header {
   transition: opacity 0.2s ease-in-out;
 }
 
-/*fix for touch-devices*/
-@media (hover: hover) {
-  .primary_button:not([disabled]) {
-    &:hover {
-      border-color: var(--grayscale_01);
-      outline: none;
-      &::after {
-        background-color: var(--grayscale_01);
-      }
-    }
-  }
-
-  .secondary_button:not([disabled]) {
-    &:hover {
-      border-color: var(--primary_01);
-      &::after {
-        background-color: var(--primary_04);
-      }
-    }
-  }
-
-  .primary_button--dark_bg:hover {
-    outline: var(--primary_03) solid 4px !important;
-    border: 4px solid var(--primary_01);
-  }
+/* ----------------- Delete text-selection ----------------- */
+.unselectable,
+button {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 @media (max-width: 768px) {

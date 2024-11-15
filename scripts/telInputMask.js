@@ -31,13 +31,15 @@ function telMaskInput(e) {
 inputTel.addEventListener("keyup", telMaskInput);
 inputTel.addEventListener("keydown", telMaskInput);
 inputTel.addEventListener("change", telMaskInput);
-inputTel.addEventListener("focus", (e) => {
+inputTel.addEventListener("focus", () => {
   formInputTel.classList.add("input-div__form-input--tel");
   flag.style.opacity = "1";
   telMaskInput();
 });
 inputTel.addEventListener("blur", (e) => {
-  formInputTel.classList.remove("input-div__form-input--tel");
-  flag.style.opacity = "";
-  e.target.value = "";
+  if (e.target.value == "+7 ") {
+    formInputTel.classList.remove("input-div__form-input--tel");
+    flag.style.opacity = "";
+    e.target.value = "";
+  }
 });

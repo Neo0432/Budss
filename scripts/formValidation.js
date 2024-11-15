@@ -10,11 +10,11 @@ const checkInputsForNull = (e) => {
   if (input.value == "" || input.value == "+7 ") {
     classes.add("input-div__form-input--invalid");
     parent.setAttribute("data-after", "This field is required.");
+
     input.addEventListener("focus", (e) => toggleInvalid(e, parent));
   } else {
     input.removeEventListener("focus", toggleInvalid);
   }
-
   isReadyForSubmit(inputs);
 };
 
@@ -25,10 +25,17 @@ const toggleInvalid = (e, parent) => {
 
 function isReadyForSubmit(inputsArr) {
   const inputsArea = document.getElementById("contact-inputs");
-  for (let i = 0; i < inputsArr.length; i++) {
-    if (inputsArr[i].value == "" && inputsArr[i].required) {
-      submitButton.disabled = true;
-      if (inputsArr[i].classList.contains("input-div__form-input--invalid")) {
+  for (const input of inputsArr) {
+    if (
+      ((input.value == "" || input.value == "+7 ") && input.required) ||
+      input.classList.contains("input-div__form-input--invalid")
+    ) {
+      if (
+        (input.value == "" || input.value == "+7 ") &&
+        input.classList.contains("input-div__form-input--invalid")
+      ) {
+        submitButton.disabled = true;
+
         inputsArea.setAttribute(
           "data-after",
           "Please fill in all required fields"
@@ -37,12 +44,15 @@ function isReadyForSubmit(inputsArr) {
       return;
     }
   }
+
   inputsArea.setAttribute("data-after", "");
   submitButton.disabled = false;
 }
 
-for (let i = 0; i < inputs.length; i++) {
-  if (inputs[i].required) {
-    inputs[i].addEventListener("blur", checkInputsForNull);
+for (const input of inputs) {
+  if (input.required) {
+    input.addEventListener("blur", checkInputsForNull);
+    input.addEventListener("blur", () => isReadyForSubmit(inputs));
+    input.addEventListener("input", () => isReadyForSubmit(inputs));
   }
 }

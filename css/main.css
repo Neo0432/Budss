@@ -83,8 +83,8 @@ main > section {
 
 .slogan-block__hero {
   position: absolute;
-  /* width: 36.2rem; */
-  width: clamp(17.2rem, 41.3vw, 37.2rem);
+  width: 36.2rem;
+  width: clamp(28rem, 41.3vw, 37.2rem);
 
   height: 33.07rem;
   bottom: 0;
@@ -100,7 +100,8 @@ main > section {
       left: 0;
       position: absolute;
       &:first-child {
-        height: 94.4%;
+        max-height: 94.4%;
+        width: 121.6%;
       }
       &:last-child {
         margin-left: 1.8rem;
@@ -149,7 +150,7 @@ main > section {
     content: url("../public/img/about/shapes/background_shape.svg");
     position: absolute;
     left: -3.75rem;
-    width: clamp(200px, 30vw, 423px);
+    width: clamp(12.5rem, 30vw, 26.44rem);
     bottom: 0;
   }
 }
@@ -343,8 +344,7 @@ main > section {
   }
   &::after {
     position: absolute;
-    bottom: -0.25rem; /*Мне кажется костыль
-    Но я хз как иначе*/
+    bottom: -0.25rem;
   }
 }
 
@@ -352,8 +352,6 @@ main > section {
   display: none;
 }
 
-/*Задаю две вариации, иначе при одной gap почему-то
- ломает размеры заданного флекса*/
 .features__item--long {
   width: 45.81rem;
 }
@@ -560,38 +558,20 @@ footer {
   gap: 1.25rem;
 }
 
-/*Delete text selection*/
-.unselectable,
-button {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
 @media (max-width: 1439px) {
   .slogan-block__hero {
     align-self: normal;
     overflow: hidden;
     & > div {
       display: flex;
-      /* width: 100%; */
-      width: calc(100% + 3.75rem);
       min-width: 32.5rem;
       max-width: 38.2rem;
       & > img {
         height: auto;
       }
-      & > img:first-child {
-        /* height: 94.4%; */
-        /* width: 80%; */
-        /* bottom: 0; */
-        min-width: 330px;
-      }
       & > img:last-child {
-        width: 80.87%;
-        /* height: auto; */
-        /* min-width: 232.27px; */
+        width: 82.23%;
+        min-width: 28.125rem;
       }
     }
   }
@@ -673,8 +653,11 @@ button {
 
   .slogan-block__hero {
     position: relative;
+
+    display: flex;
+    justify-content: end;
+    width: calc(100% + 3.75rem);
     overflow: hidden;
-    width: 100%;
   }
 
   .about__features {
@@ -769,28 +752,26 @@ button {
   }
   .slogan-block__hero {
     width: calc(100% + 1.33rem);
+    height: fit-content;
     overflow: hidden;
     & > div {
-      display: flex;
-      /* justify-self: end; */
-      width: calc(100% + 1.33rem);
+      width: 27.54rem;
+      height: 20.61rem;
+      min-width: auto;
+      overflow: visible;
       & > img {
         height: auto;
       }
       & > img:first-child {
-        width: calc(100% - 6.555rem);
-        /* min-width: 30.75rem; */
-        /* height: 98.3%; */
-        /* height: calc(100% - 80.02px); */
+        width: 27.54rem;
         height: auto;
-        left: auto;
         right: 0;
         bottom: 0;
       }
       & > img:last-child {
-        width: 71.5%;
+        width: 19.35rem;
+        min-width: 0;
         left: auto;
-        right: 5.91rem;
         bottom: 0;
       }
     }
@@ -927,8 +908,6 @@ button {
 
   .features__row:first-child > .features__item:nth-child(2) {
     min-height: min-content;
-    /* margin-bottom: -1.76rem; */
-    /* height: fit-content; */
     &::after {
       content: "";
     }

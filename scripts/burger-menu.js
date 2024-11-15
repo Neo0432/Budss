@@ -6,9 +6,7 @@ const hamburgerMenu = document.querySelector(".hamburger-menu");
 let isBurgerOpen = hamburgerMenu.getAttribute("data-is-open") === "true";
 
 hamburgerButton.addEventListener("click", () => {
-  console.log(typeof isBurgerOpen);
   if (!isBurgerOpen) {
-    console.log(1);
     hamburgerMenu.setAttribute("data-is-open", "true");
     isBurgerOpen = true;
     body.style.overflow = "hidden";
