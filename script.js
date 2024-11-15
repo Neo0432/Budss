@@ -6,9 +6,10 @@ const nextButton = document.querySelector(".button--next");
 let slides = Array.from(slidesBlock.children);
 const dots = document.querySelector(".dots");
 
-let isAnimationPlaying = false; // whether the transition animation is being played
+//whether the transition animation is being played
+let isAnimationPlaying = false;
 
-// checking for class. If doesen't have class - add class
+//checking for class. If doesen't have class - add class
 for (let slide of slides) {
   if (!slide.classList.contains("slides__slide"))
     slide.classList.add("slides__slide");
@@ -27,13 +28,13 @@ slidesBlock.appendChild(firstSlide);
 setIndexes(slides);
 setDots(slides);
 
-// set initial position for elements
+//set initial position for elements
 moveToSlide(null, document.querySelector('[data-slide-index="0"]'), false);
 
 prevButton.addEventListener("click", () => prevSlide());
 nextButton.addEventListener("click", () => nextSlide());
 
-// forward button
+//forward button
 function nextSlide() {
   if (isAnimationPlaying) return;
   const OldCurrentSlide = document.querySelector(".slide-current");
@@ -46,7 +47,7 @@ function nextSlide() {
   chandeActiveDot();
 }
 
-// backward button
+//backward button
 function prevSlide() {
   if (isAnimationPlaying) return;
   const OldCurrentSlide = document.querySelector(".slide-current");
@@ -59,7 +60,7 @@ function prevSlide() {
   chandeActiveDot(null, false);
 }
 
-// assigning indexes to each element
+//assigning indexes to each element
 function setIndexes(slidesArr) {
   for (let i = 0; i < slidesArr.length; i++) {
     slidesArr[i].setAttribute("data-slide-index", `${i - 1}`);
@@ -79,11 +80,11 @@ function setDots(slideArr) {
   dots.firstChild.classList.add("active-dot");
 }
 
-function chandeActiveDot(e = null, forward = true) {
+function chandeActiveDot(dot = null, forward = true) {
   let activeDot = document.querySelector(".active-dot");
 
-  // if func was called from left or right button
-  if (e == null) {
+  //if func was called from left or right controls
+  if (dot == null) {
     activeDot.classList.remove("active-dot");
     let newDotIndex;
     if (forward) newDotIndex = +activeDot.getAttribute("data-dot-index") + 1;
@@ -95,28 +96,28 @@ function chandeActiveDot(e = null, forward = true) {
     return;
   }
 
-  if (activeDot == e.target) return;
+  //if current slide
+  if (activeDot == dot.target) return;
 
   const startSlide = document.querySelector(
     `[data-slide-index = '${activeDot.getAttribute("data-dot-index")}']`
   );
 
   const endSlide = () => {
-    if (e != null)
+    if (dot != null)
       return document.querySelector(
-        `[data-slide-index = '${e.target.getAttribute("data-dot-index")}' `
+        `[data-slide-index = '${dot.target.getAttribute("data-dot-index")}' `
       );
   };
-  console.log(endSlide().getAttribute("data-slide-index"));
 
   activeDot.classList.remove("active-dot");
-  activeDot = e.target;
+  activeDot = dot.target;
   activeDot.classList.add("active-dot");
 
   moveToSlide(startSlide, endSlide());
 }
 
-// computing how much the block needs to be shifted
+//computing how much the block needs to be shifted
 function moveToSlide(oldSlide, slide, isAnimated = true) {
   if (oldSlide != null && slide != null) {
     oldSlide.classList.remove("slide-current");
@@ -144,7 +145,7 @@ function moveToSlide(oldSlide, slide, isAnimated = true) {
   } else slidesBlock.style.left = `${-position}px`;
 }
 
-// move to last or firts element, if index equial -1 or last
+//move to last or firts element, if index equial -1 or last
 function isLastSlide(oldSlide, slide) {
   if (+slide.getAttribute("data-slide-index") == -1) {
     slide.classList.remove("slide-current");
@@ -165,7 +166,7 @@ function easyInOutQuad(t) {
   return t < 0.5 ? 2 * t ** 2 : -1 + (4 - 2 * t) * t;
 }
 
-// computing non-linaar function for posititon
+//computing non-linaar function for posititon
 function getSmootherTransition(
   startPosition,
   newPosition,
@@ -195,7 +196,6 @@ function getSmootherTransition(
     const progress = animate();
 
     if (progress == 1) {
-      console.log(progress);
       isLastSlide(oldSlide, newSlide);
       isAnimationPlaying = false;
       clearInterval(intervalID);
